@@ -72,6 +72,17 @@ namespace PrincessBrideTrivia.Tests
             Assert.AreEqual(expectedString, percentage);
         }
 
+        [TestMethod]
+        [DataRow("95%", "Good Job, you're a true fan of The Princess Bride!")]
+        [DataRow("75%", "Good enough, but can you really call yourself a 'true fan' with a score like that?")]
+        [DataRow("55%", "You've surely seen this movie before, but how long ago was that?")]
+        [DataRow("25%", "Have you even seen this movie? Try again after watching!")]
+
+        public void PercentCorrectRatingMessage_ReturnsExpectedMessage(string percentCorrect, string ratingMessage)
+        {
+            string message = Program.PercentCorrectRatingMessage(percentCorrect);
+            Assert.AreEqual(ratingMessage, message);
+        }
 
         private static void GenerateQuestionsFile(string filePath, int numberOfQuestions)
         {

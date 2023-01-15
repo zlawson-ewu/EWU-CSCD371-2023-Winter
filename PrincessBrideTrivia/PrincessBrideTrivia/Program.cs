@@ -19,12 +19,32 @@ namespace PrincessBrideTrivia
                     numberCorrect++;
                 }
             }
-            Console.WriteLine("You got " + GetPercentCorrect(numberCorrect, questions.Length) + " correct");
+            string percentCorrect = GetPercentCorrect(numberCorrect, questions.Length);
+            Console.WriteLine("You got " + percentCorrect + " correct");
+            Console.WriteLine(PercentCorrectRatingMessage(percentCorrect));
         }
 
         public static string GetPercentCorrect(int numberCorrectAnswers, int numberOfQuestions)
         {
-            return ((double)numberCorrectAnswers / numberOfQuestions * 100) + "%";
+            return (int)((double)numberCorrectAnswers / numberOfQuestions * 100) + "%";
+        }
+
+        public static string PercentCorrectRatingMessage(string rating)
+        {
+            int rank = int.Parse(rating.Replace("%", ""));
+            if (rank >= 90)
+            {
+                return "Good Job, you're a true fan of The Princess Bride!";
+            }
+            if (rank >= 70)
+            {
+                return "Good enough, but can you really call yourself a 'true fan' with a score like that?";
+            }
+            if (rank >= 40)
+            {
+                return "You've surely seen this movie before, but how long ago was that?";
+            }
+            return "Have you even seen this movie? Try again after watching!";
         }
 
         public static bool AskQuestion(Question question)

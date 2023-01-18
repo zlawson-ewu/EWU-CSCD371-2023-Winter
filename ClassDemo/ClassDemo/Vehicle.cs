@@ -1,21 +1,23 @@
-﻿namespace ClassDemo
+﻿namespace ClassDemo;
+public class Vehicle
 {
-    public class Vehicle
+    public Vehicle(string model)
     {
-        private string _Model;
+        Model = model;
+    }
 
-        public string Model 
+    private string? _Model;
+    public string Model 
+    {
+        get 
         {
-            get 
-            { 
-                return _Model; 
-            }
-            set 
-            {
-                ArgumentNullException.ThrowIfNull(value);
-                ArgumentException.ThrowIfNullOrEmpty(value.Trim());
-                _Model = value ?? throw new ArgumentNullException(nameof(value));
-            }
+            return _Model!;
+        }
+        set 
+        {
+            ArgumentNullException.ThrowIfNull(value);
+            ArgumentException.ThrowIfNullOrEmpty(value.Trim());
+            _Model = value;
         }
     }
 }

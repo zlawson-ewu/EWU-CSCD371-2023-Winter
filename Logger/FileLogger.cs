@@ -14,11 +14,9 @@ namespace Logger
 
         public override void Log(LogLevel logLevel, string message)
         {
-            FileStream stream = File.OpenWrite(path);
-            StreamWriter writer = new StreamWriter(stream);
+            StreamWriter writer = File.AppendText(path);
             string date = DateTime.Now.ToString();
-            string className = this.GetType().Name;
-            writer.WriteLine($" {date} {nameof(className)} {logLevel} : {message}");
+            writer.WriteLine($" {date} {ClassName} {logLevel} : {message}");
             writer.Dispose();
         }
     }

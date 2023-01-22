@@ -7,15 +7,15 @@ namespace Logger.Tests
     public class FileLoggerTests
     {
         [TestMethod]
-        public void FileLogger_OnCreation_HasClassName()
+        public void FileLogger_OnCreation_HasCallingClassName()
         {
-            string testPath = "C:\\Users\\zachl\\Source\\Repos\\EWU-CSCD371-2023-Winter\\Logger.Tests\\Logger.Tests.csproj";
+            string testPath = "C:\\Users\\zachl\\Desktop\\test.txt";
             LogFactory factory = new();
             factory.ConfigureFileLogger(testPath);
-            BaseLogger logger = factory.CreateLogger(this.GetType().Name);
+            BaseLogger logger = factory.CreateLogger(GetType().Name);
             string name = logger.ClassName;
-            logger.Log(LogLevel.Information, name);
-            Assert.AreEqual(name, this.GetType().Name);
+            logger.Log(LogLevel.Information, "This is a test message.");
+            Assert.AreEqual(name, GetType().Name);
         }
         
     }

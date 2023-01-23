@@ -28,4 +28,17 @@ public class LogFactoryTests
         //Assert
         Assert.AreEqual(null, factory.CreateLogger(GetType().Name));
     }
+
+    [TestMethod]
+    public void FileLogger_OnCreation_SetsClassNameInLogFactory()
+    {
+        //Arrange
+        //Act
+        LogFactory factory = new();
+        factory.ConfigureFileLogger(testPath);
+        BaseLogger logger = factory.CreateLogger(GetType().Name);
+        string name = logger.ClassName;
+        //Assert
+        Assert.AreEqual(name, GetType().Name);
+    }
 }

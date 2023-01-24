@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.IO;
 
 namespace Logger.Tests;
@@ -22,6 +21,7 @@ public class LogFactoryTests
         //Assert
         Assert.IsNotNull(logger);
     }
+
     [TestMethod]
     public void LogFactory_CreateLogger_ReturnsNullIfNotConfigured()
     {

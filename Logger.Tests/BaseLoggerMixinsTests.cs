@@ -14,7 +14,7 @@ public class BaseLoggerMixinsTests
         // Arrange
 
         // Act
-        BaseLoggerMixins.Error(null, "");
+        BaseLoggerMixins.Error(null!, "");
 
         // Assert
     }
@@ -41,7 +41,7 @@ public class BaseLoggerMixinsTests
         // Arrange
 
         // Act
-        BaseLoggerMixins.Warning(null, "message");
+        BaseLoggerMixins.Warning(null!, "message");
 
         // Assert
     }
@@ -68,7 +68,7 @@ public class BaseLoggerMixinsTests
         // Arrange
 
         // Act
-        BaseLoggerMixins.Information(null, "message");
+        BaseLoggerMixins.Information(null!, "message");
 
         // Assert
     }
@@ -95,7 +95,7 @@ public class BaseLoggerMixinsTests
         // Arrange
 
         // Act
-        BaseLoggerMixins.Debug(null, "message");
+        BaseLoggerMixins.Debug(null!, "message");
 
         // Assert
     }

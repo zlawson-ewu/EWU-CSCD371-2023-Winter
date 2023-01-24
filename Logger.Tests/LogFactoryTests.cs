@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.IO;
 
 namespace Logger.Tests;
@@ -6,7 +7,7 @@ namespace Logger.Tests;
 [TestClass]
 public class LogFactoryTests
 {
-    string testPath = Path.Combine(Directory.GetCurrentDirectory(), "testLog.txt");
+    readonly string testPath = Path.Combine(Directory.GetCurrentDirectory(), "testLog.txt");
 
     [TestMethod]
     public void LogFactory_CreateLogger_ReturnsLoggerIfConfigured()
@@ -37,7 +38,7 @@ public class LogFactoryTests
         LogFactory factory = new();
         factory.ConfigureFileLogger(testPath);
         BaseLogger logger = factory.CreateLogger(GetType().Name);
-        string name = logger.ClassName;
+        string name = logger.ClassName!;
         //Assert
         Assert.AreEqual(name, GetType().Name);
     }

@@ -13,10 +13,12 @@ public class LogFactoryTests
     public void LogFactory_CreateLogger_ReturnsLoggerIfConfigured()
     {
         //Arrange
+
         //Act
         LogFactory factory = new();
         factory.ConfigureFileLogger(testPath);
         BaseLogger logger = factory.CreateLogger(GetType().Name);
+
         //Assert
         Assert.IsNotNull(logger);
     }
@@ -24,8 +26,10 @@ public class LogFactoryTests
     public void LogFactory_CreateLogger_ReturnsNullIfNotConfigured()
     {
         //Arrange
+
         //Act
         LogFactory factory = new();
+
         //Assert
         Assert.AreEqual(null, factory.CreateLogger(GetType().Name));
     }
@@ -34,11 +38,13 @@ public class LogFactoryTests
     public void FileLogger_OnCreation_SetsClassName()
     {
         //Arrange
+
         //Act
         LogFactory factory = new();
         factory.ConfigureFileLogger(testPath);
         BaseLogger logger = factory.CreateLogger(GetType().Name);
         string name = logger.ClassName!;
+
         //Assert
         Assert.AreEqual(name, GetType().Name);
     }
@@ -47,9 +53,11 @@ public class LogFactoryTests
     public void LogFactory_CreateConsoleLogger_ReturnsConsoleLogger()
     {
         //Arrange
+
         //Act
         LogFactory factory = new();
         BaseLogger logger = factory.CreateConsoleLogger(GetType().Name);
+
         //Assert
         Assert.IsNotNull(logger);
     }
@@ -58,10 +66,12 @@ public class LogFactoryTests
     public void ConsoleLogger_OnCreation_SetsClassName()
     {
         //Arrange
+
         //Act
         LogFactory factory = new();
         BaseLogger logger = factory.CreateConsoleLogger(GetType().Name);
         string name = logger.ClassName!;
+
         //Assert
         Assert.AreEqual(name, GetType().Name);
     }

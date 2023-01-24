@@ -42,4 +42,27 @@ public class LogFactoryTests
         //Assert
         Assert.AreEqual(name, GetType().Name);
     }
+
+    [TestMethod]
+    public void LogFactory_CreateConsoleLogger_ReturnsConsoleLogger()
+    {
+        //Arrange
+        //Act
+        LogFactory factory = new();
+        BaseLogger logger = factory.CreateConsoleLogger(GetType().Name);
+        //Assert
+        Assert.IsNotNull(logger);
+    }
+
+    [TestMethod]
+    public void ConsoleLogger_OnCreation_SetsClassNameInLogFactory()
+    {
+        //Arrange
+        //Act
+        LogFactory factory = new();
+        BaseLogger logger = factory.CreateConsoleLogger(GetType().Name);
+        string name = logger.ClassName!;
+        //Assert
+        Assert.AreEqual(name, GetType().Name);
+    }
 }

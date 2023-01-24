@@ -7,21 +7,23 @@ using System.Linq;
 namespace Logger.Tests;
 
 [TestClass]
-public class FileLoggerTests
+public class ConsoleLoggerTests
 {
-    readonly string testPath = Path.Combine(Directory.GetCurrentDirectory(), "testLog.txt");
+    readonly string testPath = Path.Combine(Directory.GetCurrentDirectory(), "consoleTestLog.txt");
 
     [TestMethod]
-    public void FileLogger_OnLog_AppendsMessageToFile()
+    public void ConsoleLogger_OnLog_PrintsMessageToConsole()
     {
         //Arrange
         string date = DateTime.Now.ToString();
         string testMessage = $" {date} {GetType().Name} {LogLevel.Information} : test";
+        StreamWriter writer = File.AppendText(testPath);
+        Console.SetOut(writer);
         //Act
-        LogFactory factory = new();
-        factory.ConfigureFileLogger(testPath);
-        BaseLogger logger = factory.CreateLogger(GetType().Name);
-        logger.Log(LogLevel.Information, "test");
+        LogFactory factory = new LogFactory();
+        BaseLogger consoleLogger = factory.CreateConsoleLogger(GetType().Name);
+        consoleLogger.Log(LogLevel.Information, "test");
+        writer.Dispose();
         string readLine = File.ReadLines(testPath).Last();
         //Assert
         Assert.AreEqual(testMessage, readLine);

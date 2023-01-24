@@ -16,7 +16,7 @@ internal class FileLogger : BaseLogger
     {
         StreamWriter writer = File.AppendText(_Path!);
         string date = DateTime.Now.ToString();
-        writer.WriteLine($" {date} {ClassName} {logLevel} : {message}");
+        writer.WriteLine($"{date} {ClassName} {logLevel} : {message}");
         writer.Dispose();
     }
 }

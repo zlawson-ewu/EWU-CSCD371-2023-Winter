@@ -15,7 +15,7 @@ public class FileLoggerTests
     {
         //Arrange
         string date = DateTime.Now.ToString();
-        string testMessage = $" {date} {GetType().Name} {LogLevel.Information} : test";
+        string testMessage = $"{date} {GetType().Name} {LogLevel.Information} : test";
 
         //Act
         LogFactory factory = new();

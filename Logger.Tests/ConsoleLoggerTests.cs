@@ -15,7 +15,7 @@ public class ConsoleLoggerTests
     {
         //Arrange
         string date = DateTime.Now.ToString();
-        string testMessage = $" {date} {GetType().Name} {LogLevel.Information} : test";
+        string testMessage = $"{date} {GetType().Name} {LogLevel.Information} : test";
         StreamWriter writer = File.AppendText(testPath);
         Console.SetOut(writer);
 

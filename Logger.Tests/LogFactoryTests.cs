@@ -31,7 +31,7 @@ public class LogFactoryTests
     }
 
     [TestMethod]
-    public void FileLogger_OnCreation_SetsClassNameInLogFactory()
+    public void FileLogger_OnCreation_SetsClassName()
     {
         //Arrange
         //Act
@@ -55,7 +55,7 @@ public class LogFactoryTests
     }
 
     [TestMethod]
-    public void ConsoleLogger_OnCreation_SetsClassNameInLogFactory()
+    public void ConsoleLogger_OnCreation_SetsClassName()
     {
         //Arrange
         //Act

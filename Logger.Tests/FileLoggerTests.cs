@@ -20,7 +20,7 @@ public class FileLoggerTests
         //Act
         LogFactory factory = new();
         factory.ConfigureFileLogger(testPath);
-        BaseLogger logger = factory.CreateLogger(GetType().Name);
+        BaseLogger logger = factory.CreateLogger(nameof(FileLoggerTests));
         logger.Log(LogLevel.Information, "test");
         string readLine = File.ReadLines(testPath).Last();
 

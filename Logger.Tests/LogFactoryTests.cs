@@ -16,7 +16,7 @@ public class LogFactoryTests
         //Act
         LogFactory factory = new();
         factory.ConfigureFileLogger(testPath);
-        BaseLogger logger = factory.CreateLogger(GetType().Name);
+        BaseLogger logger = factory.CreateLogger(nameof(LogFactoryTests));
 
         //Assert
         Assert.IsNotNull(logger);
@@ -31,7 +31,7 @@ public class LogFactoryTests
         LogFactory factory = new();
 
         //Assert
-        Assert.AreEqual(null, factory.CreateLogger(GetType().Name));
+        Assert.AreEqual(null, factory.CreateLogger(nameof(LogFactoryTests)));
     }
 
     [TestMethod]
@@ -42,11 +42,11 @@ public class LogFactoryTests
         //Act
         LogFactory factory = new();
         factory.ConfigureFileLogger(testPath);
-        BaseLogger logger = factory.CreateLogger(GetType().Name);
+        BaseLogger logger = factory.CreateLogger(nameof(LogFactoryTests));
         string name = logger.ClassName!;
 
         //Assert
-        Assert.AreEqual(name, GetType().Name);
+        Assert.AreEqual(name, nameof(LogFactoryTests));
     }
 
     [TestMethod]
@@ -56,7 +56,7 @@ public class LogFactoryTests
 
         //Act
         LogFactory factory = new();
-        BaseLogger logger = factory.CreateConsoleLogger(GetType().Name);
+        BaseLogger logger = factory.CreateConsoleLogger(nameof(LogFactoryTests));
 
         //Assert
         Assert.IsNotNull(logger);
@@ -69,10 +69,10 @@ public class LogFactoryTests
 
         //Act
         LogFactory factory = new();
-        BaseLogger logger = factory.CreateConsoleLogger(GetType().Name);
+        BaseLogger logger = factory.CreateConsoleLogger(nameof(LogFactoryTests));
         string name = logger.ClassName!;
 
         //Assert
-        Assert.AreEqual(name, GetType().Name);
+        Assert.AreEqual(name, nameof(LogFactoryTests));
     }
 }

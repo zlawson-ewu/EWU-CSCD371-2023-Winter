@@ -21,7 +21,7 @@ public class ConsoleLoggerTests
 
         //Act
         LogFactory factory = new LogFactory();
-        BaseLogger consoleLogger = factory.CreateConsoleLogger(GetType().Name);
+        BaseLogger consoleLogger = factory.CreateConsoleLogger(nameof(ConsoleLoggerTests));
         consoleLogger.Log(LogLevel.Information, "test");
         writer.Dispose();
         string readLine = File.ReadLines(testPath).Last();

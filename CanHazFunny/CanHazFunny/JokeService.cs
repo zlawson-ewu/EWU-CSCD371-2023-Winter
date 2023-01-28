@@ -1,15 +1,20 @@
 ﻿using System.Net.Http;
 
-namespace CanHazFunny
-{
-    public class JokeService
-    {
-        private HttpClient HttpClient { get; } = new();
+namespace CanHazFunny;
 
-        public string GetJoke()
+public class JokeService : IJokeService
+{
+    private HttpClient HttpClient { get; } = new();
+
+    public string GetJoke()
+    {
+        string joke;
+
+        do
         {
-            string joke = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api").Result;
-            return joke;
-        }
+            joke = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api?format=json").Result;
+        } while (((IJokeService)this).CheckForChuckNorris(joke) is true);
+
+        return joke;
     }
 }

@@ -17,4 +17,5 @@ public interface IJokeService
         }
         else return false;
     }
+    abstract string GetJoke();
 }

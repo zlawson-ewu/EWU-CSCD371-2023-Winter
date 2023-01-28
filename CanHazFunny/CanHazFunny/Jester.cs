@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CanHazFunny;
 
@@ -25,19 +21,19 @@ public class Jester
     {
         if (jokeService is null)
         {
-            throw new ArgumentNullException("jokeService passed to Jester contructor cannot be null.");
+            throw new ArgumentNullException(jokeService + "cannot be null.");
         }
         this.JokeService = jokeService;
         if (jokeWriter is null)
         {
-            throw new ArgumentNullException("joke passed to Jester constructor cannot be null.");
+            throw new ArgumentNullException(jokeWriter + "cannot be null.");
         }
-        this.JokeWriter = jokeWriter;
+        JokeWriter = jokeWriter;
     }
 
     public void TellJoke()
     {
-        this.JokeWriter.Joke = JokeService.GetJoke();
-        this.JokeWriter.PrintJokeToConsole(this.JokeWriter.Joke);
+        JokeWriter.Joke = JokeService.GetJoke();
+        JokeWriter.PrintJokeToConsole(JokeWriter.Joke);
     }
 }

@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System.Diagnostics.Metrics;
 
 namespace CanHazFunny.Tests;
@@ -6,16 +7,12 @@ namespace CanHazFunny.Tests;
 [TestClass]
 public class JesterTests
 {
-    [ClassInitialize]
-    public void TestSetup(TestContext testcontext)
+    [TestMethod]
+    public void Jester_Contains_JokeService()
     {
         JokeService jokeService = new();
         FunnyOut jokeWriter = new();
         Jester jester = new(jokeService, jokeWriter);
+        jester.TellJoke();
     }
-
-    /*[TestMethod]
-    public void Jester_Contains_JokeService()
-    {
-    }*/
 }

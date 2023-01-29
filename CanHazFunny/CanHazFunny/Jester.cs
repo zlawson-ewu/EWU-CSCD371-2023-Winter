@@ -4,20 +4,20 @@ namespace CanHazFunny;
 
 public class Jester
 {
-    public JokeService JokeService
+    public IJokeService JokeService
     {
         get { return _JokeService!; }
         set { _JokeService = value; }
     }
-    private JokeService? _JokeService;
-    public FunnyOut JokeWriter
+    private IJokeService? _JokeService;
+    public IFunnyOut JokeWriter
     {
         get { return _JokeWriter!; }
         set { _JokeWriter = value; }
     }
-    private FunnyOut? _JokeWriter;
+    private IFunnyOut? _JokeWriter;
 
-    public Jester(JokeService jokeService, FunnyOut jokeWriter)
+    public Jester(IJokeService jokeService, IFunnyOut jokeWriter)
     {
         if (jokeService is null)
         {
@@ -31,8 +31,9 @@ public class Jester
         JokeWriter = jokeWriter;
     }
 
-    public void TellJoke(out string joke)
+    public void TellJoke()
     {
+        string joke;
         do
         {
             joke = JokeService.GetJoke();
@@ -42,6 +43,6 @@ public class Jester
 
     public static bool CheckForChuckNorris(string joke)
     {
-        return (joke.Contains("Chuck") || joke.Contains("Norris") || joke.Contains("Walker"));
+        return joke.Contains("Chuck") || joke.Contains("Norris") || joke.Contains("Walker");
     }
 }

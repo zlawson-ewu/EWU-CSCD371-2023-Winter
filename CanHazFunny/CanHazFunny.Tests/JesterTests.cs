@@ -12,28 +12,28 @@ public class JesterTests
     public void Jester_Contains_JokeService()
     {
         //Arrange
-        JokeService jokeService = new();
-        FunnyOut jokeWriter = new();
+        IJokeService jokeService = new JokeService();
+        IFunnyOut jokeWriter = new FunnyOut();
 
         //Act
         Jester jester = new(jokeService, jokeWriter);
 
         //Assert
-        Assert.AreEqual<JokeService>(jester.JokeService, jokeService);
+        Assert.AreEqual<IJokeService>(jester.JokeService, jokeService);
     }
 
     [TestMethod]
     public void Jester_Contains_JokeWriter()
     {
         //Arrange
-        JokeService jokeService = new();
-        FunnyOut jokeWriter = new();
+        IJokeService jokeService = new JokeService();
+        IFunnyOut jokeWriter = new FunnyOut();
 
         //Act
         Jester jester = new(jokeService, jokeWriter);
 
         //Assert
-        Assert.AreEqual<FunnyOut>(jester.JokeWriter, jokeWriter);
+        Assert.AreEqual<IFunnyOut>(jester.JokeWriter, jokeWriter);
     }
 
     [TestMethod]
@@ -41,7 +41,7 @@ public class JesterTests
     public void Jester_GivenNullJokeService_ThrowsNullException()
     {
         //Arrange
-        FunnyOut jokeWriter = new();
+        IFunnyOut jokeWriter = new FunnyOut();
 
         //Act
         new Jester(null!, jokeWriter);
@@ -52,7 +52,7 @@ public class JesterTests
     public void Jester_GivenNullJokeWriter_ThrowsNullException()
     {
         //Arrange
-        JokeService jokeService = new();
+        IJokeService jokeService = new JokeService();
 
         //Act
         new Jester(jokeService, null!);
@@ -75,12 +75,28 @@ public class JesterTests
     public void Jester_GivenNotChuckNorrisJoke_ReturnFalse()
     {
         //Arrange
-        string containsNorris = "Hi, I'm not that guy with all the jokes written about him";
+        string doesntContainNorris = "Hi, I'm not that guy with all those jokes written about him";
 
         //Act
-        bool isChuck = Jester.CheckForChuckNorris(containsNorris);
+        bool isChuck = Jester.CheckForChuckNorris(doesntContainNorris);
 
         //Assert
         Assert.IsFalse(isChuck);
+    }
+
+    [TestMethod]
+    public void Jester_TellJoke_SkipsChuckNorris()
+    {
+        var mockService = new Mock<IJokeService>();
+        mockService.Setup(x => x.GetJoke()).Returns("test");
+        IJokeService jokeService = mockService.Object;
+
+        var mockWriter = new Mock<IFunnyOut>();
+        mockWriter.Setup(x => x.PrintJokeToConsole("test")).Verifiable();
+        IFunnyOut jokeWriter = mockWriter.Object;
+
+        Jester jester = new(jokeService, jokeWriter);
+
+        Assert.AreEqual<String>("test", jokeService.GetJoke());
     }
 }

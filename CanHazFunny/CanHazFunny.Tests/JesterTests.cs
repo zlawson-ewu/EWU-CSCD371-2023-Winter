@@ -88,7 +88,12 @@ public class JesterTests
     public void Jester_TellJoke_SkipsChuckNorris()
     {
         var mockService = new Mock<IJokeService>();
-        mockService.Setup(x => x.GetJoke()).Returns("test");
+        mockService.SetupSequence(x => x.GetJoke())
+            .Returns("Chuck Norris")
+            .Returns("Norris the man")
+            .Returns("test")
+            .Returns("Chuck the myth")
+            .Returns("Walker Texas Ranger");
         IJokeService jokeService = mockService.Object;
 
         var mockWriter = new Mock<IFunnyOut>();
@@ -98,6 +103,6 @@ public class JesterTests
         Jester jester = new(jokeService, jokeWriter);
 
         jester.TellJoke();
-        mockWriter.Verify();
+        mockWriter.Verify(x => x.PrintJokeToConsole("test"), Times.Once);
     }
 }

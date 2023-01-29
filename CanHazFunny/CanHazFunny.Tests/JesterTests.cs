@@ -103,6 +103,16 @@ public class JesterTests
         Jester jester = new(jokeService, jokeWriter);
 
         jester.TellJoke();
-        mockWriter.Verify(x => x.PrintJokeToConsole("test"), Times.Once);
+
+        mockService.SetupSequence(x => x.GetJoke())
+            .Returns("Chuck Norris")
+            .Returns("Norris the man")
+            .Returns("Chuck the myth")
+            .Returns("test")
+            .Returns("Walker Texas Ranger");
+        jokeService = mockService.Object;
+
+        jester.TellJoke();
+        mockWriter.Verify(x => x.PrintJokeToConsole("test"), Times.Exactly(2));
     }
 }

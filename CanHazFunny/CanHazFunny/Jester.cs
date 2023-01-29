@@ -37,7 +37,7 @@ public class Jester
         do
         {
             joke = JokeService.GetJoke();
-        } while (joke.Contains("Chuck") || joke.Contains("Norris") is true);
+        } while (joke.Contains("Chuck Norris") is true);
         JokeWriter.PrintJokeToConsole(joke);
     }
 }

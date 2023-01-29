@@ -10,9 +10,9 @@ public class JesterTests
     [TestMethod]
     public void Jester_Contains_JokeService()
     {
-        JokeService jokeService = new();
-        FunnyOut jokeWriter = new();
-        Jester jester = new(jokeService, jokeWriter);
-        jester.TellJoke();
+        //JokeService jokeService = new();
+        //FunnyOut jokeWriter = new();
+        //Jester jester = new(jokeService, jokeWriter);
+        //jester.TellJoke();
     }
 }

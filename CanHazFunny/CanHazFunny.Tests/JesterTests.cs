@@ -57,4 +57,30 @@ public class JesterTests
         //Act
         new Jester(jokeService, null!);
     }
+
+    [TestMethod]
+    public void Jester_GivenChuckNorrisJoke_ReturnTrue()
+    {
+        //Arrange
+        string containsNorris = "Hi, I'm Chuck Norris";
+        
+        //Act
+        bool isChuck = Jester.CheckForChuckNorris(containsNorris);
+
+        //Assert
+        Assert.IsTrue(isChuck);
+    }
+
+    [TestMethod]
+    public void Jester_GivenNotChuckNorrisJoke_ReturnFalse()
+    {
+        //Arrange
+        string containsNorris = "Hi, I'm not that guy with all the jokes written about him";
+
+        //Act
+        bool isChuck = Jester.CheckForChuckNorris(containsNorris);
+
+        //Assert
+        Assert.IsFalse(isChuck);
+    }
 }

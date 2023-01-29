@@ -40,12 +40,8 @@ public class Jester
         JokeWriter.PrintJokeToConsole(joke);
     }
 
-    private static bool CheckForChuckNorris(string joke)
+    public static bool CheckForChuckNorris(string joke)
     {
-        if (joke.Contains("Chuck") || joke.Contains("Norris") || joke.Contains("Walker"))
-        {
-            return true;
-        }
-        else return false;
+        return (joke.Contains("Chuck") || joke.Contains("Norris") || joke.Contains("Walker"));
     }
 }

@@ -44,7 +44,7 @@ public class JesterTests
         FunnyOut jokeWriter = new();
 
         //Act
-        Jester jester = new(null!, jokeWriter);
+        new Jester(null!, jokeWriter);
     }
 
     [TestMethod]
@@ -55,6 +55,6 @@ public class JesterTests
         JokeService jokeService = new();
 
         //Act
-        Jester jester = new(jokeService, null!);
+        new Jester(jokeService, null!);
     }
 }

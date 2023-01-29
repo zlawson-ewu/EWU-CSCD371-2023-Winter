@@ -23,7 +23,7 @@ public class Jester
         {
             throw new ArgumentNullException(jokeService + "cannot be null.");
         }
-        this.JokeService = jokeService;
+        JokeService = jokeService;
         if (jokeWriter is null)
         {
             throw new ArgumentNullException(jokeWriter + "cannot be null.");

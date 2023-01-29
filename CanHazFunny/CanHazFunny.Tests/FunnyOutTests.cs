@@ -25,7 +25,7 @@ public class FunnyOutTests
         string readLine = File.ReadLines(testPath).Last();
 
         //Assert
-        Assert.AreEqual(testMessage, readLine);
+        Assert.AreEqual<String>(testMessage, readLine);
 
         //Cleanup
         File.Delete(testPath);

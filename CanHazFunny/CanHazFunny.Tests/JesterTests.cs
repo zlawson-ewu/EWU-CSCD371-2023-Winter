@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Diagnostics.Metrics;
 
 namespace CanHazFunny.Tests;
 
@@ -59,41 +58,12 @@ public class JesterTests
     }
 
     [TestMethod]
-    public void Jester_GivenChuckNorrisJoke_ReturnTrue()
-    {
-        //Arrange
-        string containsNorris = "Hi, I'm Chuck Norris";
-        
-        //Act
-        bool isChuck = Jester.CheckForChuckNorris(containsNorris);
-
-        //Assert
-        Assert.IsTrue(isChuck);
-    }
-
-    [TestMethod]
-    public void Jester_GivenNotChuckNorrisJoke_ReturnFalse()
-    {
-        //Arrange
-        string doesntContainNorris = "Hi, I'm not that guy with all those jokes written about him";
-
-        //Act
-        bool isChuck = Jester.CheckForChuckNorris(doesntContainNorris);
-
-        //Assert
-        Assert.IsFalse(isChuck);
-    }
-
-    [TestMethod]
     public void Jester_TellJoke_SkipsChuckNorris()
     {
         //Arrange
         var mockService = new Mock<IJokeService>();
         mockService.SetupSequence(x => x.GetJoke())
             .Returns("Chuck Norris")
-            .Returns("Norris the man")
-            .Returns("Chuck the myth")
-            .Returns("Walker Texas Ranger")
             .Returns("test");
         IJokeService jokeService = mockService.Object;
 

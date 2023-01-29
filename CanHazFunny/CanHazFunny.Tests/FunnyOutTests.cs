@@ -18,9 +18,9 @@ public class FunnyOutTests
         StreamWriter writer = File.AppendText(testPath);
         Console.SetOut(writer);
         IFunnyOut funnyOut = new FunnyOut();
-        funnyOut.PrintJokeToConsole(testMessage);
 
         //Act
+        funnyOut.PrintJokeToConsole(testMessage);
         writer.Dispose();
         string readLine = File.ReadLines(testPath).Last();
 

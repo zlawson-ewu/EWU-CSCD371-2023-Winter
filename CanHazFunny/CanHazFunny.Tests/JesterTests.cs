@@ -97,6 +97,7 @@ public class JesterTests
 
         Jester jester = new(jokeService, jokeWriter);
 
-        Assert.AreEqual<String>("test", jokeService.GetJoke());
+        jester.TellJoke();
+        mockWriter.Verify();
     }
 }

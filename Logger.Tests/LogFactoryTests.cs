@@ -16,7 +16,7 @@ public class LogFactoryTests
         //Act
         LogFactory factory = new();
         factory.ConfigureFileLogger(testPath);
-        BaseLogger logger = factory.CreateLogger(nameof(LogFactoryTests));
+        BaseLogger logger = factory.CreateLogger(nameof(LogFactoryTests))!;
 
         //Assert
         Assert.IsNotNull(logger);
@@ -42,7 +42,7 @@ public class LogFactoryTests
         //Act
         LogFactory factory = new();
         factory.ConfigureFileLogger(testPath);
-        BaseLogger logger = factory.CreateLogger(nameof(LogFactoryTests));
+        BaseLogger logger = factory.CreateLogger(nameof(LogFactoryTests))!;
         string name = logger.ClassName!;
 
         //Assert

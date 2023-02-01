@@ -4,11 +4,11 @@ public class LogFactory
 {
     private string? _Path;
 
-    public BaseLogger CreateLogger(string className)
+    public BaseLogger? CreateLogger(string className)
     {
         if (_Path is null)
         {
-            return null!;
+            return null;
         }
         return new FileLogger(_Path) { ClassName = className };
     }

@@ -4,7 +4,9 @@ namespace Logger.Tests;
 
 [TestClass]
 public class FileLoggerTests : FileLoggerTestsBase
-{    
+{
+
+
     [TestMethod]
     public void Create_GivenClassAndValidFileName_Success()
     {

@@ -1,0 +1,17 @@
+﻿
+
+Postitional parameters that are non-nullable should be
+	a. read-only with null check on declaration assignment
+	b. fully implmeented properties with null validation.
+
+Postitional parameters requiring validation should be
+	a. read-only with validation check on declaration assignment
+	b. fully implmeented properties with validation.
+
+Reference type positonal parameters without explicit declartion should be nullable.
+
+DO use readonly on all value type declarations.
+
+NOTES:
+value type records are read-write by default.
+reference type records are read-only by default.

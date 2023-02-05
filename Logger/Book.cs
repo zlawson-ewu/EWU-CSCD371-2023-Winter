@@ -11,5 +11,6 @@ public class Book : Entity
         Title = title;
     }
 
-    public override string Name => $"{AuthorName.FirstName} {AuthorName.LastName}";
+    public override string Name => $"{Title}";
+    public string Author => $"{AuthorName.LastName}, {AuthorName.FirstName}";
 }

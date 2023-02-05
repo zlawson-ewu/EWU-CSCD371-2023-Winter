@@ -8,6 +8,7 @@ public class ProductTests
     public void ReadOnly_Property_Set()
     {
         Product product = new Product(
+            Id: 42,
             Name: "AirJordan", 
             Price: 1000, 
             Description: "Really Expensive");
@@ -19,6 +20,7 @@ public class ProductTests
     public void Name_AssignNullInConstructor_ThrowException()
     {
         Product product = new Product(
+            Id: 42,
             Name: null!,
             Price: 1000,
             Description: "Really Expensive");
@@ -29,6 +31,7 @@ public class ProductTests
     public void Name_AssignNullInInitializer_ThrowException()
     {
         Product product = new Product(
+            Id: 42,
             Name: "Reebok",
             Price: 1000,
             Description: "Really Expensive")
@@ -41,6 +44,7 @@ public class ProductTests
     public void Equals_TwoReferences_True()
     {
         Product product1 = new Product(
+            Id: 42,
             Name: "Reebok",
             Price: 1000,
             Description: "Really Expensive");

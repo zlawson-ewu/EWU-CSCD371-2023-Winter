@@ -49,4 +49,11 @@ public class BookTests
     {
         Book testBook = new(testTitle, null!, testYearPublished);
     }
+
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentNullException))]
+    public void Book_InvalidYear_ThrowsException()
+    {
+        Book testBook = new(testTitle, null!, -2000);
+    }
 }

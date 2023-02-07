@@ -34,4 +34,12 @@ public class StudentTests
 
         Assert.IsTrue(testStudent.Equals(testStudent2));
     }
+
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentException))]
+    public void Student_InvalidSID_ThrowsException()
+    {
+        FullName testName = new("Michael", "Scott", "Gary");
+        Student testStudent = new(-23, testName);
+    }
 }

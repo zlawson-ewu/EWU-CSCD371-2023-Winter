@@ -1,6 +1,6 @@
 ﻿namespace Logger;
 
-public class FileLogger : BaseLogger
+public class FileLogger : BaseLogger, ILogger
 {
     public FileLogger(string logSource, string filePath)
     {
@@ -13,6 +13,14 @@ public class FileLogger : BaseLogger
     public string FilePath { get; }
 
     FileInfo File { get; }
+
+    public static FileLogger CreateLogger(string logSource, string filePath) =>
+        new FileLogger(logSource, filePath);
+    
+    static ILogger ILogger.CreateLogger(string logSource, string filePath)
+    {
+        return CreateLogger(logSource, filePath);
+    }
 
     public override void Log(LogLevel logLevel, string message)
     {

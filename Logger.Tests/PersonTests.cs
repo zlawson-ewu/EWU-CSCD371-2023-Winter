@@ -5,7 +5,7 @@ namespace Logger.Tests;
 [TestClass]
 public class PersonTests
 {
-    FullName testFullName = new(FirstName:"Tom", LastName:"Rohr", MiddleName: "Stephen");
+    readonly FullName testFullName = new(FirstName:"Tom", LastName:"Rohr", MiddleName: "Stephen");
     
     [TestMethod]
     public void Person_SetsName_Correct()

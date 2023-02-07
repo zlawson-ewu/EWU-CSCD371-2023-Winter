@@ -8,6 +8,7 @@ public record class Student( int SID, FullName FName) : Person(FName)
     {
         return "Student ID: "+ SID + base.ToString();
     }
+
     public virtual bool Equals(Student? other)
     {   
         if( other is null) return false;

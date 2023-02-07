@@ -35,7 +35,6 @@ public class StudentTests
         Assert.IsTrue(testStudent.Equals(testStudent2));
     }
 
-
     [TestMethod]
     public void Student_ValueBasedEquality_False()
     {

@@ -20,7 +20,7 @@ public class StudentTests
     {
         FullName testName = new("Michael", "Scott", "Gary");
         Student testStudent = new(1, testName);
-        string expected = String.Format("Student ID: {0}, Full Name: {1}", testStudent.SID, testStudent.FName);  
+        string expected = string.Format("Student ID: {0}, Full Name: {1}", testStudent.SID, testStudent.FName);  
 
         Assert.AreEqual(expected, testStudent.ToString());
     }

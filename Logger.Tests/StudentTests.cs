@@ -35,6 +35,17 @@ public class StudentTests
         Assert.IsTrue(testStudent.Equals(testStudent2));
     }
 
+
+    [TestMethod]
+    public void Student_ValueBasedEquality_False()
+    {
+        FullName testName = new("Michael", "Scott", "Gary");
+        Student testStudent = new(1, testName);
+        Student testStudent2 = new(2, testName);
+
+        Assert.IsFalse(testStudent.Equals(testStudent2));
+    }
+
     [TestMethod]
     [ExpectedException(typeof(ArgumentException))]
     public void Student_InvalidSID_ThrowsException()

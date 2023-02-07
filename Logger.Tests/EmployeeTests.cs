@@ -36,6 +36,16 @@ public class EmployeeTests
     }
 
     [TestMethod]
+    public void Employee_ValueBasedEquality_False()
+    {
+        FullName testName = new("Michael", "Scott", "Gary");
+        Employee testEmployee = new(1, testName);
+        Employee testEmployee2 = new(2, testName);
+
+        Assert.IsFalse(testEmployee.Equals(testEmployee2));
+    }
+
+    [TestMethod]
     [ExpectedException(typeof(ArgumentException))]
     public void Employee_InvalidEID_ThrowsException()
     {

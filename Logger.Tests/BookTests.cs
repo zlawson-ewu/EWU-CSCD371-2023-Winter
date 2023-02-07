@@ -29,6 +29,15 @@ public class BookTests
     }
 
     [TestMethod]
+    public void Book_ValueBasedEquality_False()
+    {
+        Book testBook = new(testTitle, testAuthor, testYearPublished);
+        Book testBook2 = new(testTitle, testAuthor, 2000);
+
+        Assert.IsFalse(testBook.Equals(testBook2));
+    }
+
+    [TestMethod]
     public void Book_ToStringOverridenToStringFormat_Correct()
     {
         Book testBook = new(testTitle, testAuthor, testYearPublished);

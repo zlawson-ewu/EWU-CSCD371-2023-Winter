@@ -1,11 +1,18 @@
 ﻿namespace Logger;
 
-public class Student : Person
+public record class Student( int SID, FullName FName) : Person(FName)
 {
-    public Student(string firstName, string? middleName, string lastName, int studentId) : base(firstName, lastName, middleName)
+    public int SID { get; init; } = SID <= 0 ? throw new ArgumentException(nameof(SID)) : SID;
+
+    public override string ToString()
     {
-        StudentId = studentId;
+        return "Student ID: "+ SID + base.ToString();
+    }
+    public virtual bool Equals(Student? other)
+    {   
+        if( other is null) return false;
+        return (Name, SID) == (other?.Name, other?.SID);
     }
 
-    public int StudentId { get; }
+    public override int GetHashCode() => HashCode.Combine(SID.GetHashCode(), base.GetHashCode());
 }

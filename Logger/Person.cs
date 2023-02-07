@@ -1,12 +1,19 @@
-﻿namespace Logger;
-
-public class Person : Entity
+﻿namespace Logger
 {
-    FullName FullName { get; }
-    public Person(string firstName, string lastName, string? middleName)
+    public record class Person(FullName FName) : Entity
     {
-        FullName = new FullName(firstName, lastName, middleName);
-    }
+        public override string Name { get; init; } = FName.ToString() ?? throw new ArgumentNullException(nameof(FName));
 
-    public override string Name { get => $"{FullName.FirstName} {FullName.LastName}"; }
+        public override string ToString()
+        {
+            return String.Format(", Full Name: " + Name);
+        }
+        public virtual bool Equals(Person? other)
+        {
+            if (other is null) return false;
+            return Name == other.Name;
+        }
+        public override int GetHashCode() => HashCode.Combine(Id.GetHashCode(), Name.GetHashCode());
+
+    }
 }

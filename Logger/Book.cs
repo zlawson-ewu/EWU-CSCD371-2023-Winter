@@ -1,16 +1,23 @@
-﻿namespace Logger;
+﻿using System.Security.Cryptography;
 
-public class Book : Entity
+namespace Logger;
+
+public record class Book(string Title, FullName Author, int YearPublished) : Entity
 {
-    FullName AuthorName { get; }
-    public string Title { get; }
+    public override string Name { get; init; } = Title ?? throw new ArgumentNullException(nameof(Title));
+    public FullName Author { get; init; } = Author?? throw new ArgumentNullException(nameof(Author));
+    public int YearPublished { get; init; } = YearPublished <= 0 ? throw new ArgumentException(nameof(YearPublished)) : YearPublished;
 
-    public Book(string authorFirst, string? authorMiddle, string authorLast, string title)
+    public virtual bool Equals(Book? other)
     {
-        AuthorName = new FullName(authorFirst, authorLast, authorMiddle);
-        Title = title;
+        if (other is null) return false;
+        return (Name, Author, YearPublished) == (other?.Name, other?.Author, other?.YearPublished);
     }
 
-    public override string Name => $"{Title}";
-    public string Author => $"{AuthorName.LastName}, {AuthorName.FirstName}";
+    public override int GetHashCode() =>  HashCode.Combine(Title.GetHashCode(), Author.GetHashCode(), YearPublished.GetHashCode());
+
+    public override string ToString()
+    {
+        return String.Format("TITLE: {0}, AUTHOR: {1}, PUBLISHED: {2}", Name, Author, YearPublished);
+    }
 }

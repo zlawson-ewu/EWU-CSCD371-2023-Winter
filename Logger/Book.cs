@@ -11,7 +11,6 @@ public record class Book(string Title, FullName Author, int YearPublished) : Ent
     public virtual bool Equals(Book? other)
     {
         if (other is null) return false;
-        if (ReferenceEquals(this, other)) return true;
         return (Name, Author, YearPublished) == (other?.Name, other?.Author, other?.YearPublished);
     }
 

@@ -11,6 +11,7 @@
         public virtual bool Equals(Person? other)
         {
             if (other is null) return false;
+            if (ReferenceEquals(this, other)) return true;
             return Name == other.Name;
         }
         public override int GetHashCode() => HashCode.Combine(Id.GetHashCode(), Name.GetHashCode());

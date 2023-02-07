@@ -11,6 +11,7 @@ public record class Book(string Title, FullName Author, int YearPublished) : Ent
     public virtual bool Equals(Book? other)
     {
         if (other is null) return false;
+        if (ReferenceEquals(this, other)) return true;
         return (Name, Author, YearPublished) == (other?.Name, other?.Author, other?.YearPublished);
     }
 
@@ -18,6 +19,6 @@ public record class Book(string Title, FullName Author, int YearPublished) : Ent
 
     public override string ToString()
     {
-        return String.Format("TITLE: {0}, AUTHOR: {1}, PUBLISHED: {2}", Name, Author, YearPublished);
+        return string.Format("TITLE: {0}, AUTHOR: {1}, PUBLISHED: {2}", Name, Author, YearPublished);
     }
 }

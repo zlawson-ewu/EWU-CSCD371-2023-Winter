@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace Logger;
+﻿namespace Logger;
 
 public record class Employee(int EID, FullName FName) : Person(FName)
 {

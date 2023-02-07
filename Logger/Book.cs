@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace Logger;
+﻿namespace Logger;
 
 public record class Book(string Title, FullName Author, int YearPublished) : Entity
 {

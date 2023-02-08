@@ -1,11 +1,11 @@
 ﻿namespace Logger;
 
-public class LogFactory
+public class LogFactory<TLogger> where TLogger : class, new()
 {
     public string? FileName { get; set; }
 
-    public BaseLogger? CreateLogger(string className) => 
-        FileName is null ? null : new FileLogger(className, FileName);
+    public TLogger CreateLogger(string className) =>
+        FileName is null ? null : new TLogger();
 
     public void ConfigureFileLogger(string fileName) => FileName=fileName;
 }

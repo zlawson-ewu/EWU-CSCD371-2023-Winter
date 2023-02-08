@@ -13,6 +13,6 @@ public class LoggerTests
     [TestMethod]
     public void CreateLogger_GivenTestLogger_Success()
     {
-        // TestLogger logger = TestLogger.CreateLogger("Logger.Tests", "log.txt");
+        TestLogger logger = TestLogger.CreateLogger<TestLogger>("Logger.Tests", "log.txt");
     }
 }

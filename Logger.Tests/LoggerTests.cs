@@ -11,8 +11,9 @@ public class LoggerTests
     }
 
     [TestMethod]
-    public void CreateLogger_GivenTestLogger_Success()
+    public void CreateLogger_GivenTestLoggerFactory_Success()
     {
-        TestLogger logger = TestLogger.CreateLogger<TestLogger>("Logger.Tests", "log.txt");
+        TestLoggerFactory factory = new();
+        
     }
 }

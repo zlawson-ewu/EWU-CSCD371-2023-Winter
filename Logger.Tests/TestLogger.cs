@@ -1,6 +1,6 @@
 ﻿namespace Logger.Tests;
 
-public class TestLogger : BaseLogger, ILogger<TestLogger>
+public class TestLogger : BaseLogger, ILogger, ILogger<TestLogger>, ILogger<TestLogger, TestLoggerFactory>
 {
     public TestLogger(string logSource)
     {
@@ -9,11 +9,9 @@ public class TestLogger : BaseLogger, ILogger<TestLogger>
     public List<(LogLevel LogLevel, string Message)> LoggedMessages { get; } = new List<(LogLevel, string)>();
 
     public override string LogSource { get; }
+    
 
-    public static TLogger CreateLogger<TLogger>(string logSource, string filePath)
-    {
-        throw new NotImplementedException();
-    }
+    public TestLogger? Next { get; set; }
 
     static TestLogger Create(string logSource)
     {
@@ -23,6 +21,7 @@ public class TestLogger : BaseLogger, ILogger<TestLogger>
     public override void Log(LogLevel logLevel, string message)
     {
         LoggedMessages.Add((logLevel, message));
+        Next?.Log(logLevel, message);
     }
 
 

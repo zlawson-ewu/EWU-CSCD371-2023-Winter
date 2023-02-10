@@ -5,7 +5,21 @@ namespace Logger.Tests;
 [TestClass]
 public class FileLoggerTests : FileLoggerTestsBase
 {
+    [TestMethod]
+    public void CreateFromFactory()
+    {
+        TestLoggerFactory testLoggerFactory = new TestLoggerFactory();
+        TestLogger logger = new TestLogger(nameof(FileLoggerTests));
+        
+        
+    }
 
+    [TestMethod]
+    public void FileLogger()
+    {
+        ILogger logger = new LogFactory<TestLogger, TestLoggerFactory>().CreateLogger(nameof(FileLoggerTests));
+    }
+    
 
     [TestMethod]
     public void Create_GivenClassAndValidFileName_Success()

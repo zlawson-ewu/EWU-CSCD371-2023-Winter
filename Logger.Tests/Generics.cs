@@ -1,34 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Logger.Tests;
 
-struct NullableInt
-{
-    public int Value { get; set; }     
-}
-
-struct NullableDouble
-{
-    public int Value { get; set; }
-}
-
-struct CustomNullable<TValueType> where TValueType: struct
-{
-    public CustomNullable(TValueType value)
-    {
-        Value = value;
-    }
-    public TValueType Value { get; set; }
-}
-
-struct CustomObject
-{
-    public CustomObject(object value)
-    {
-        Value = value;
-    }
-    public object Value { get; set; }
-}
-
 [TestClass]
 public class GenericsTests
 {
@@ -44,7 +16,7 @@ public class GenericsTests
     public void CreateNullableInt_Success()
     {
         NullableInt number = new();
-        //number.Value;
+        Assert.IsFalse(number.HasValue);
     }
 
     [TestMethod]
@@ -54,6 +26,7 @@ public class GenericsTests
         nullableNumber.Value = 5;
         int integer = nullableNumber.Value;
 
+        Assert.IsTrue(nullableNumber.HasValue);
         AreEqual(5, integer);
 
     }

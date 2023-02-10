@@ -7,10 +7,16 @@ namespace Logger.Tests;
 public class LogFactoryTests : FileLoggerTestsBase
 {
     [TestMethod]
-    public void ConfigureFileLogger_GivenFilePath_ReturnsFileLoggerWithSetFilePath()
+    public void CreateLogger_ReturnsTestLoggerWithSetFilePath()
     {
         LogFactory<TestLogger, TestLoggerFactory> logFactory = new();
         TestLogger logger = logFactory.CreateLogger(nameof(LogFactoryTests));
-        //logFactory.ConfigureFileLogger(FilePath);
+    }
+
+    [TestMethod]
+    public void ConfigureFileLogger_GivenFilePath_ReturnsFileLoggerWithSetFilePath()
+    {
+        //LogFactory<FileLogger, FileLoggerFactory> logFactory = new();
+        //TestLogger logger = logFactory.CreateLogger(nameof(LogFactoryTests));
     }
 }

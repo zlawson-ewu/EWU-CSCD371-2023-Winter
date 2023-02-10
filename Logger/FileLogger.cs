@@ -1,6 +1,6 @@
 ﻿namespace Logger;
 
-public class FileLogger : BaseLogger
+public class FileLogger : BaseLogger, ILogger, ILogger<FileLogger>, ILogger<FileLogger, FileLoggerFactory>
 {
     public FileLogger(string logSource, string filePath)
     {
@@ -11,7 +11,7 @@ public class FileLogger : BaseLogger
 
     public override string LogSource { get; }
     public string FilePath { get; }
-
+    public FileLogger? Next { get; set; }
     FileInfo File { get; }
 
     public static FileLogger CreateLogger(string logSource, string filePath) =>

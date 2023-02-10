@@ -14,6 +14,20 @@ public class LoggerTests
     public void CreateLogger_GivenTestLoggerFactory_Success()
     {
         TestLoggerFactory factory = new();
-        
+    }
+
+    [TestMethod]
+    public void CreateFromFactory()
+    {
+        TestLoggerFactory testLoggerFactory = new TestLoggerFactory();
+        TestLogger logger = new TestLogger(nameof(FileLoggerTests));
+    }
+
+    [TestMethod]
+    public void Create_FileLogger()
+    {
+        // Pending configuration
+        //ILogger logger =
+        //    new LogFactory<FileLogger, FileLoggerFactory>().CreateLogger(nameof(FileLoggerTests));
     }
 }

@@ -1,20 +1,22 @@
 ﻿namespace GenericsHomework;
 
-public class Node<TValue>
+public class Node<T>
 {
-    public TValue? Value { get; set; } //does 'no validation necessary' mean null is fine? Erasing the ? from here and constructor causes no errors.
-    public Node<TValue> Next { get; private set; } //is this sufficiently non-nullable because no code paths can make it null?
-    public Node(TValue? value)
+    public T? Value { get; set; } //does 'no validation necessary' mean null is fine? Erasing the ? from here and constructor causes no errors.
+
+    public Node<T> Next { get; private set; } //is this sufficiently non-nullable because no code paths can make it null?
+
+    public Node(T? value)
     {
         Value = value;
         Next = this;
     }
 
-    public void Append(TValue value)
+    public void Append(T value)
     {
         if (!Exists(value))
         {
-            Node<TValue> temp = new(value) { Next = Next };
+            Node<T> temp = new(value) { Next = Next };
             Next = temp;
         }
         else
@@ -23,19 +25,20 @@ public class Node<TValue>
         }
     }
 
-    public bool Exists(TValue value)
+    public bool Exists(T value)
     {
-        Node<TValue> temp = this;
-        bool exists = false;
-        while (temp.Next != this && !exists) //unsure if != operator is correct here
+        Node<T> temp = this;
+        if (temp.Value!.Equals(value)) return true;
+        temp = temp.Next;
+        while (temp != this) //unsure if != operator is correct here
         {
             if (temp.Value!.Equals(value)) //unsure if this is the right Equals to call
             {
-                exists = true;
+                return true;
             }
             temp = temp.Next;
         }
-        return exists;
+        return false;
     }
 
     public override string? ToString()

@@ -1,24 +1,30 @@
-﻿namespace GenericsHomework;
+﻿using System.Reflection.Metadata.Ecma335;
 
-public class Node<TItem>
+namespace GenericsHomework;
+
+public class Node<TValue>
 {
-    public TItem Item { get; init; }
-    public Node<TItem> Next { get; private set; }
+    public TValue Value { get; init; }
+    public Node<TValue> Next { get; private set; }
 
-    public Node(TItem item)
+    public Node(TValue value)
     {
-        Item = item ?? throw new ArgumentNullException(nameof(item));
-        Next = this ?? throw new ArgumentNullException(nameof(item));//Initially points to itself, cannot be null per instructions
+        Value = value;//?? throw new ArgumentNullException(nameof(value));
+        Next = this ?? throw new ArgumentNullException(nameof(value));//Initially points to itself, cannot be null per instructions
     }
 
-    public void Append(Node<TItem> list)
+    public void Append(TValue value)
     {
-        Next = list.Next!;
-        list.Next!.Next = list.Next!;
+
+    }
+
+    public void Clear(Node<TValue> node)
+    {
+
     }
 
     public override string? ToString()
     {
-        return Item!.ToString(); //Better way to handle than using '!'?
+        return Value!.ToString(); //Better way to handle than using '!'?
     }
 }

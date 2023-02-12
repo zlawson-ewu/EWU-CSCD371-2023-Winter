@@ -2,7 +2,7 @@
 
 public class Node<TValue>
 {
-    public TValue? Value { get; set; } //does 'no validation necessary' mean null is fine?
+    public TValue? Value { get; set; } //does 'no validation necessary' mean null is fine? Erasing the ? from here and constructor causes no errors.
     public Node<TValue> Next { get; private set; } //is this sufficiently non-nullable because no code paths can make it null?
     public Node(TValue? value)
     {

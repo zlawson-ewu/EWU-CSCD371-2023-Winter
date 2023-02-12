@@ -12,8 +12,9 @@ public class Node<TValue>
 
     public void Append(TValue value)
     {
-        Node<TValue> temp = Next;
-        Next = new(value) { Next = temp };
+        Node<TValue> temp = new Node<TValue>(value);
+        temp.Next = Next;
+        Next = temp;
     }
 
     public void Clear()
@@ -44,7 +45,10 @@ public class Node<TValue>
      * Second, it prevents infinite loops should you have any circular linked lists of objects.
      */
 
+    public void Exists(TValue value)
+    {
 
+    }
 
     public override string? ToString()
     {

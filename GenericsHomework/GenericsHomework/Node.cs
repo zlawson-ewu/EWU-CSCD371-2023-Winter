@@ -2,8 +2,8 @@
 
 public class Node<TValue>
 {
-    public TValue? Value { get; set; }
-    public Node<TValue> Next { get; private set; }
+    public TValue? Value { get; set; } //does 'no validation necessary' mean null is fine?
+    public Node<TValue> Next { get; private set; } //is this sufficiently non-nullable because no code paths can make it null?
     public Node(TValue? value)
     {
         Value = value;
@@ -12,9 +12,35 @@ public class Node<TValue>
 
     public void Append(TValue value)
     {
-        Node<TValue> temp = new Node<TValue>(value);
-        temp.Next = Next;
-        Next = temp;
+        if (!Exists(value))
+        {
+            Node<TValue> temp = new(value) { Next = Next };
+            Next = temp;
+        }
+        else
+        {
+            throw new ArgumentException(nameof(value) + " already exists in the list.");
+        }
+    }
+
+    public bool Exists(TValue value)
+    {
+        Node<TValue> temp = this;
+        bool exists = false;
+        while (temp.Next != this && !exists) //unsure if != operator is correct here
+        {
+            if (temp.Value!.Equals(value)) //unsure if this is the right Equals to call
+            {
+                exists = true;
+            }
+            temp = temp.Next;
+        }
+        return exists;
+    }
+
+    public override string? ToString()
+    {
+        return Value!.ToString(); //is use of ! ok here?
     }
 
     public void Clear()
@@ -44,14 +70,4 @@ public class Node<TValue>
      * First, it helps performance significantly since it doesn't walk through a set of objects more than once. 
      * Second, it prevents infinite loops should you have any circular linked lists of objects.
      */
-
-    public void Exists(TValue value)
-    {
-
-    }
-
-    public override string? ToString()
-    {
-        return Value!.ToString();
-    }
 }

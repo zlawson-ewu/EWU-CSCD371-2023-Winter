@@ -7,21 +7,21 @@ public class NodeTests
     public void Node_SingleNodeConfiguration_IsCorrect()
     {
         Node<string> firstNode = new("First node");
-        Assert.AreEqual(firstNode, firstNode.Next);
+        Assert.AreEqual<Node<string>>(firstNode, firstNode.Next);
     }
 
     [TestMethod]
     public void Node_ToStringOverride_works()
     {
         Node<string> node = new("I hope this works...");
-        Assert.AreEqual("I hope this works...", node.ToString());
+        Assert.AreEqual<string>("I hope this works...", node.ToString()!);
     }
 
     [TestMethod]
     public void Node_ToStringOverride_HandlesNull()
     {
         Node<string> node = new(null);
-        Assert.AreEqual("null", node.ToString());
+        Assert.AreEqual<string>("null", node.ToString()!);
     }
 
     [TestMethod]
@@ -30,7 +30,7 @@ public class NodeTests
         Node<int> list = new(1);
         list.Append(2);
 
-        Assert.AreEqual(2, list.Next.Value);
+        Assert.AreEqual<int>(2, list.Next.Value);
     }
 
     [TestMethod]
@@ -53,7 +53,7 @@ public class NodeTests
         list.Append("Third node");
         list.Append("Fourth node");
 
-        Assert.AreEqual("Fourth node", list.Next.Value);
+        Assert.AreEqual<string>("Fourth node", list.Next.Value!);
     }
 
     [TestMethod]
@@ -88,6 +88,6 @@ public class NodeTests
 
         list.Clear();
 
-        Assert.AreEqual(list, list.Next);
+        Assert.AreEqual<Node<int>>(list, list.Next);
     }
 }

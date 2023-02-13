@@ -28,17 +28,16 @@ public class Node<T>
     public bool Exists(T value)
     {
         Node<T> temp = this;
-        if (temp.Value!.Equals(value)) return true;
-        temp = temp.Next;
-        while (temp != this) //unsure if != operator is correct here
+        bool exists = false;
+        do
         {
-            if (temp.Value!.Equals(value)) //unsure if this is the right Equals to call
+            if (temp.Value!.Equals(value))
             {
-                return true;
+                exists = true;
             }
             temp = temp.Next;
-        }
-        return false;
+        } while (!temp.Equals(this) && !exists);
+        return exists;
     }
 
     public override string? ToString()

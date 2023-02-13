@@ -2,9 +2,9 @@
 
 public class Node<T>
 {
-    public T? Value { get; set; } //does 'no validation necessary' mean null is fine? Erasing the ? from here and constructor causes no errors.
+    public T? Value { get; set; } //Assuming "No validation is necessary on the value" means null is allowed.
 
-    public Node<T> Next { get; private set; } //is this sufficiently non-nullable because no code paths can make it null?
+    public Node<T> Next { get; private set; } //This should never be null because of the constructor and private setter.
 
     public Node(T? value)
     {
@@ -42,20 +42,20 @@ public class Node<T>
 
     public override string? ToString()
     {
-        return (Value is null) ? "null" : Value!.ToString(); //is use of ! and ? ok here?
+        return (Value is null) ? "null" : Value!.ToString();
     }
 
     public void Clear()
     {
-        this.Next = this; //When the rest of the items in the list fall out of execution reachability the
-                          //garbage collector will collect them regardless of them pointing to each other.
-                          //No need to point the last item away from this Node, as there is no root reference
-                          //leading to the last item.
-                          //https://stackoverflow.com/questions/400706/circular-references-cause-memory-leak
+        Next = this;
     }
-
-    /*
-     * https://learn.microsoft.com/en-us/archive/msdn-magazine/2000/november/garbage-collection-automatic-memory-management-in-the-microsoft-net-framework
+    /* 
+     * When the rest of the items in the list fall out of execution reachability the
+     * garbage collector will collect them regardless of them pointing to each other.
+     * No need to point the last item away from this Node, as there is no root reference
+     * leading to the last item.
+     * https://stackoverflow.com/questions/400706/circular-references-cause-memory-leak
+     * 
      * When the garbage collector starts running, it makes the assumption that all objects in the heap are garbage. 
      * In other words, it assumes that none of the application's roots refer to any objects in the heap. Now, the 
      * garbage collector starts walking the roots and building a graph of all objects reachable from the roots. 
@@ -71,5 +71,6 @@ public class Node<T>
      * it previously added, then the garbage collector can stop walking down that path. This serves two purposes. 
      * First, it helps performance significantly since it doesn't walk through a set of objects more than once. 
      * Second, it prevents infinite loops should you have any circular linked lists of objects.
+     * https://learn.microsoft.com/en-us/archive/msdn-magazine/2000/november/garbage-collection-automatic-memory-management-in-the-microsoft-net-framework
      */
 }

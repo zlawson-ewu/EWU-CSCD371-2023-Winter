@@ -4,6 +4,8 @@ namespace LambdaExpressions;
 [TestClass]
 public class Lambdas
 {
+    private bool text;
+
     public bool AlphabeticalGreaterThan(string a, int b)
     {
         return a.CompareTo(b) > 0;
@@ -44,18 +46,19 @@ public class Lambdas
     public void ForEach_AB_Sucess()
     {
         string[] items = new[] { "A", "B" };
-        Foreach(DoSomething, items);
+        Foreach(DoSomethingString, items);
     }
 
-    void DoSomething(string text) => Console.WriteLine(text);
-
+    void DoSomethingString(string text) => Console.WriteLine(text);
+    void DoSomethingObject(object thing) => Console.WriteLine(text);
+    void DoSomethingInt(int thing) => Console.WriteLine(text);
 
     [TestMethod]
     public void ForEach_LambdaExpresion_Sucess()
     {
         string[] items = new[] { "A", "B" };
         string sentence = "This is a really long string.";
-        Action<string> action = DoSomething;
+        Action<string> action = DoSomethingString;
         action = (string text) => Console.WriteLine(text);
         action = (text) => Console.WriteLine(text);
         action = text => Console.WriteLine(text);
@@ -68,13 +71,25 @@ public class Lambdas
         Action takeAction = () => Console.WriteLine(sentence);
         takeAction = Console.WriteLine;
 
-        Foreach(DoSomething, items);
+        Foreach(DoSomethingString, items);
+        Foreach(DoSomethingObject, items);
+        // Foreach(DoSomethingInt, items);
     }
 
 
+    object GetThing() => new object();
+    string GetText() => "InigoMontoya";
+    
+    T Calculate<T>(Func<T> getData) => getData();
 
+    [TestMethod]
+    public void MyTestMethod()
+    {
+        object obj = Calculate(GetThing);
+        string text = Calculate(GetText);
+    }
 
-
+    
 
     [TestMethod]
     [ExpectedException(typeof(Exception))]

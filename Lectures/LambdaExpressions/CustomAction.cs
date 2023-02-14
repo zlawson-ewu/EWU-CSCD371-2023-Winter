@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LambdaExpressions;
-internal class Class1
+﻿namespace LambdaExpressions;
+public class CustomAction<TParameter1>
 {
+    public TParameter1 Parameter1{ get; set; }
 }

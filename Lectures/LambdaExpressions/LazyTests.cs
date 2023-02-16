@@ -14,4 +14,13 @@ public class LazyTests
         Assert.AreEqual(text, textFactory.Value);
     }
     
+    int NonNullableNumber;
+    
+    int? NullableNumber;
+    [TestMethod]
+    public void NullableDefaultsTo()
+    {
+        Assert.AreEqual<int?>(null, NullableNumber);
+        Assert.AreEqual<int?>(0, NonNullableNumber);
+    }
 }

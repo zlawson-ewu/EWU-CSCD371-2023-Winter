@@ -76,17 +76,18 @@ public class Lambdas
         // Foreach(DoSomethingInt, items);
     }
 
-
-    object GetThing() => new object();
-    string GetText() => "InigoMontoya";
     
-    T Calculate<T>(Func<T> getData) => getData();
+    object GetThing(string thing) => thing;
+    string? GetText(object text) => text.ToString();
+    
+    string? Calculate(Func<object, string?> getData) => getData(null!);
 
     [TestMethod]
     public void MyTestMethod()
     {
-        object obj = Calculate(GetThing);
-        string text = Calculate(GetText);
+        Func<object, string?> func;
+        func = GetText;
+            
     }
 
     

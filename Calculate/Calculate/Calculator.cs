@@ -4,10 +4,18 @@ namespace Calculate;
 
 public class Calculator
 {
-    public delegate void Calculation(string lineIn);
+    public static bool TryCalculate(string calculation)
+    {
+        bool result = false;
+        if (calculation.Contains(" " + calculation.Any(x => MathematicalOperations.Keys.Contains(x)) + " "))
+        {
 
-    public IReadOnlyDictionary<char, Func<double, double, double>> MathematicalOperations { get; }
-        = new Dictionary<char, Func<double, double, double>>()
+        }
+        return result;
+    }
+
+    public static IReadOnlyDictionary<char, Func<int, int, double>> MathematicalOperations { get; }
+        = new Dictionary<char, Func<int, int, double>>()
         {
             ['+'] = Add,
             ['-'] = Subtract,
@@ -15,24 +23,12 @@ public class Calculator
             ['/'] = Divide
         };
 
-    public static double Add(double x, double y)
-    {
-        return x + y;
-    }
+    public static double Add(int x, int y) => x + y;
 
-    public static double Subtract(double x, double y)
-    {
-        return x - y;
-    }
+    public static double Subtract(int x, int y) => x - y;
 
-    public static double Multiply(double x, double y) 
-    { 
-        return x * y;
-    }
+    public static double Multiply(int x, int y) => x * y;
 
-    public static double Divide(double x, double y)
-    {
-        return x / y;
-    }
+    public static double Divide(int x, int y) => x / y;
 
 }

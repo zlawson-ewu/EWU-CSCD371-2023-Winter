@@ -11,16 +11,17 @@ namespace CalculateTests
             string testWriteLine = "WriteLine test string.";
             string testReadLine = "ReadLine string to be read";
 
-            string testActionWriteLine(string testLineOut) { return testLineOut; }
-            string testActionReadLine(string testLineIn) { return testLineIn; }
+            void testActionWriteLine(string testLineOut) { Console.WriteLine(testLineOut); }
+            string testActionReadLine() { return testReadLine; }
 
             Program program = new() { WriteLine = testActionWriteLine, ReadLine = testActionReadLine };
 
-            string writeLineOutput = program.WriteLine(testWriteLine);
-            string testStoreReadLine = program.ReadLine(testReadLine);
+            var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            program.WriteLine(testWriteLine);
 
-            Assert.AreEqual<string>("WriteLine test string.", writeLineOutput);
-            Assert.AreEqual<string>("ReadLine string to be read", testStoreReadLine);
+            Assert.AreEqual<string>("WriteLine test string.", testWriteLine);
+            Assert.AreEqual<string>("ReadLine string to be read", program.ReadLine());
 
         }
     }

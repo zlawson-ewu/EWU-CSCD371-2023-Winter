@@ -21,8 +21,7 @@ namespace CalculateTests
             program.WriteLine(testWriteLine);
 
             Assert.AreEqual<string>("WriteLine test string.", testWriteLine);
-            Assert.AreEqual<string>("ReadLine string to be read", program.ReadLine());
-
+            Assert.AreEqual<string>("ReadLine string to be read", program.ReadLine()!);
         }
     }
 }

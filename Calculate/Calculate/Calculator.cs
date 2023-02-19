@@ -4,7 +4,7 @@ public class Calculator
 {
     public bool TryCalculate(in string calculation, out double result)
     {
-        bool validCalculationString = false;
+        bool isValidCalculation = false;
         result = default;
         string[] tokens = calculation.Split(' ');
         if (tokens.Length == 3)
@@ -14,12 +14,12 @@ public class Calculator
                 && char.TryParse(tokens[1], out char opChar)
                 && int.TryParse(tokens[2], out int y))
             {
-                validCalculationString = true;
+                isValidCalculation = true;
                 Func<int, int, double> mathOperation = MathematicalOperations[opChar];
                 result = mathOperation(x, y);
             }
         }
-        return validCalculationString;
+        return isValidCalculation;
     }
 
     public IReadOnlyDictionary<char, Func<int, int, double>> MathematicalOperations { get; }

@@ -12,11 +12,11 @@ public class Calculator
         if (tokens.Length == 3)
         {
             if (int.TryParse(tokens[0], out int x)
-                && tokens[1].Any(x => MathematicalOperations.Keys.Contains(x))
+                && char.TryParse(tokens[1], out char opChar)
                 && int.TryParse(tokens[2], out int y))
             {
                 validCalculationString = true;
-                Func<int, int, double> mathOperation = MathematicalOperations[char.Parse(tokens[1])];
+                Func<int, int, double> mathOperation = MathematicalOperations[opChar];
                 result = mathOperation(x, y);
             }
         }

@@ -12,14 +12,19 @@ public class Program
     {
         Program prog = new();
         Calculator calc = new();
-        double result;
-
-        prog.WriteLine("Valid: " + calc.TryCalculate("2 + 3", out result) + ", Result: 2 + 3 = " + result);
-        prog.WriteLine("Valid: " + calc.TryCalculate("22 - 33", out result) + ", Result: 22 - 33 = " + result);
-        prog.WriteLine("Valid: " + calc.TryCalculate("2 * 3", out result) + ", Result: 2 * 3 = " + result);
-        prog.WriteLine("Valid: " + calc.TryCalculate("2 / 3", out result) + ", Result: 2 / 3 = " + result);
-        
-        prog.WriteLine("Valid: " + calc.TryCalculate("2 k 3", out result) + ", Result: 2 k 3 = " + result);
-        prog.WriteLine("Valid: " + calc.TryCalculate("2.2 / 3.3", out result) + ", Result: 2.2 / 3.3 = " + result);
+        do
+        {
+            prog.WriteLine("Enter a simple two-integer-operand calculation using +, -, *, or / as the operator.");
+            if (calc.TryCalculate(prog.ReadLine()!, out double result))
+            {
+                prog.WriteLine("The result is " + result);
+            }
+            else
+            {
+                prog.WriteLine("Invalid operation format.");
+            }
+            prog.WriteLine("Continue? Enter the 'Y' key to run again, enter anything else to quit.");
+        }
+        while (prog.ReadLine() == "Y");
     }
 }

@@ -22,7 +22,7 @@ public class Calculator
         return isValidCalculation;
     }
 
-    public IReadOnlyDictionary<char, Func<int, int, double>> MathematicalOperations { get; }
+    private IReadOnlyDictionary<char, Func<int, int, double>> MathematicalOperations { get; }
         = new Dictionary<char, Func<int, int, double>>()
         {
             ['+'] = Add,
@@ -31,8 +31,8 @@ public class Calculator
             ['/'] = Divide
         };
 
-    public static double Add(int x, int y) => x + y;
-    public static double Subtract(int x, int y) => x - y;
-    public static double Multiply(int x, int y) => x * y;
-    public static double Divide(int x, int y) => (double)x / y;
+    private static double Add(int x, int y) => x + y;
+    private static double Subtract(int x, int y) => x - y;
+    private static double Multiply(int x, int y) => x * y;
+    private static double Divide(int x, int y) => (double)x / y;
 }

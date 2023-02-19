@@ -8,7 +8,7 @@ public class Program
 
     public Program() { }
 
-    public static void Main(string[] args)
+    public static void Main()
     {
         Program prog = new();
         Calculator calc = new();

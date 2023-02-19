@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Calculate;
+﻿namespace Calculate;
 
 public class Calculator
 {
@@ -34,11 +32,7 @@ public class Calculator
         };
 
     public static double Add(int x, int y) => x + y;
-
     public static double Subtract(int x, int y) => x - y;
-
     public static double Multiply(int x, int y) => x * y;
-
     public static double Divide(int x, int y) => (double)x / y;
-
 }

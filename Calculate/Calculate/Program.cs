@@ -2,9 +2,9 @@
 
 public class Program
 {
-    public Action<string> WriteLine { get; init; } = (string text) => Console.WriteLine(text);
+    public Action<string> WriteLine { get; init; } = Console.WriteLine;
 
-    public Func<string?> ReadLine { get; init; } = () => Console.ReadLine();
+    public Func<string?> ReadLine { get; init; } = Console.ReadLine;
 
     public Program() { }
 

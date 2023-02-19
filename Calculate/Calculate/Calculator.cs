@@ -7,9 +7,16 @@ public class Calculator
     public static bool TryCalculate(string calculation)
     {
         bool result = false;
-        if (calculation.Contains(" " + calculation.Any(x => MathematicalOperations.Keys.Contains(x)) + " "))
+        string[] tokens = calculation.Split(' ');
+        if (tokens.Length == 3)
         {
-
+            int x, y;
+            if (int.TryParse(tokens[0], out x) 
+                && tokens[1].Any(x => MathematicalOperations.Keys.Contains(x)) 
+                && int.TryParse(tokens[2], out y))
+            {
+                result = true;
+            }
         }
         return result;
     }

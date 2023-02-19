@@ -4,7 +4,7 @@ namespace Calculate;
 
 public class Calculator
 {
-    public bool TryCalculate(string calculation, out double result)
+    public bool TryCalculate(in string calculation, out double result)
     {
         bool validCalculationString = false;
         result = default;
@@ -12,7 +12,7 @@ public class Calculator
         if (tokens.Length == 3)
         {
             if (int.TryParse(tokens[0], out int x)
-                && tokens[1].Any(x => MathematicalOperations.Keys.Contains(x))
+                && tokens[1].Any(op => MathematicalOperations.Keys.Contains(op))
                 && char.TryParse(tokens[1], out char opChar)
                 && int.TryParse(tokens[2], out int y))
             {
@@ -24,7 +24,7 @@ public class Calculator
         return validCalculationString;
     }
 
-    public static IReadOnlyDictionary<char, Func<int, int, double>> MathematicalOperations { get; }
+    public IReadOnlyDictionary<char, Func<int, int, double>> MathematicalOperations { get; }
         = new Dictionary<char, Func<int, int, double>>()
         {
             ['+'] = Add,

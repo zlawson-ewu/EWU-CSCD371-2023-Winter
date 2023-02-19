@@ -4,21 +4,23 @@ namespace Calculate;
 
 public class Calculator
 {
-    public static bool TryCalculate(string calculation)
+    public static bool TryCalculate(string calculation, out double result)
     {
-        bool result = false;
+        bool validCalculationString = false;
+        result = default;
         string[] tokens = calculation.Split(' ');
         if (tokens.Length == 3)
         {
-            int x, y;
-            if (int.TryParse(tokens[0], out x) 
-                && tokens[1].Any(x => MathematicalOperations.Keys.Contains(x)) 
-                && int.TryParse(tokens[2], out y))
+            if (int.TryParse(tokens[0], out int x)
+                && tokens[1].Any(x => MathematicalOperations.Keys.Contains(x))
+                && int.TryParse(tokens[2], out int y))
             {
-                result = true;
+                validCalculationString = true;
+                Func<int, int, double> mathOperation = MathematicalOperations[char.Parse(tokens[1])];
+                result = mathOperation(x, y);
             }
         }
-        return result;
+        return validCalculationString;
     }
 
     public static IReadOnlyDictionary<char, Func<int, int, double>> MathematicalOperations { get; }

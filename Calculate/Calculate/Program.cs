@@ -1,12 +1,8 @@
-﻿namespace Calculate;
+﻿using ConsoleUtilities;
+namespace Calculate;
 
-public class Program
+public class Program : ProgramBase
 {
-    public Action<string> WriteLine { get; init; } = Console.WriteLine;
-    public Func<string?> ReadLine { get; init; } = Console.ReadLine;
-
-    public Program() { }
-
     public static void Main()
     {
         Program prog = new();
@@ -14,6 +10,7 @@ public class Program
         do
         {
             prog.WriteLine("Enter a simple two-integer-operand calculation using +, -, *, or / as the operator.");
+            prog.WriteLine("Surround the operator with whitespace. Ex: \"2 + 2\", \"29 * 32\"");
             if (calc.TryCalculate(prog.ReadLine()!, out double result))
             {
                 prog.WriteLine("The result is " + result);

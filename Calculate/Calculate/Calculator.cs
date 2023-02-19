@@ -12,6 +12,7 @@ public class Calculator
         if (tokens.Length == 3)
         {
             if (int.TryParse(tokens[0], out int x)
+                && tokens[1].Any(x => MathematicalOperations.Keys.Contains(x))
                 && char.TryParse(tokens[1], out char opChar)
                 && int.TryParse(tokens[2], out int y))
             {
@@ -38,6 +39,6 @@ public class Calculator
 
     public static double Multiply(int x, int y) => x * y;
 
-    public static double Divide(int x, int y) => x / y;
+    public static double Divide(int x, int y) => (double)x / y;
 
 }

@@ -34,6 +34,15 @@ public class Program
     public Program() { }
     public static void Main(string[] args)
     {
-
+        double result;
+        Calculator.TryCalculate("2 + 3", out result);
+        Console.WriteLine(result);
+        Calculator.TryCalculate("2 - 3", out result);
+        Console.WriteLine(result);
+        Calculator.TryCalculate("2 * 3", out result);
+        Console.WriteLine(result);
+        Calculator.TryCalculate("2 / 3", out result);
+        Console.WriteLine(result);
+        Console.WriteLine(Calculator.TryCalculate("2 k 3", out _));
     }
 }

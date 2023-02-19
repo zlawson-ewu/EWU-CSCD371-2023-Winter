@@ -4,7 +4,7 @@ namespace Calculate;
 
 public class Calculator
 {
-    public static bool TryCalculate(string calculation, out double result)
+    public bool TryCalculate(string calculation, out double result)
     {
         bool validCalculationString = false;
         result = default;

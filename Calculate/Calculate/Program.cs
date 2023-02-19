@@ -34,15 +34,12 @@ public class Program
     public Program() { }
     public static void Main(string[] args)
     {
+        Calculator calc = new();
         double result;
-        Calculator.TryCalculate("2 + 3", out result);
-        Console.WriteLine(result);
-        Calculator.TryCalculate("2 - 3", out result);
-        Console.WriteLine(result);
-        Calculator.TryCalculate("2 * 3", out result);
-        Console.WriteLine(result);
-        Calculator.TryCalculate("2 / 3", out result);
-        Console.WriteLine(result);
-        Console.WriteLine(Calculator.TryCalculate("2 k 3", out _));
+        Console.WriteLine("Valid: " + calc.TryCalculate("2 + 3", out result) + ", Result: 2 + 3 = " + result);
+        Console.WriteLine("Valid: " + calc.TryCalculate("2 - 3", out result) + ", Result: 2 - 3 = " + result);
+        Console.WriteLine("Valid: " + calc.TryCalculate("2 * 3", out result) + ", Result: 2 * 3 = " + result);
+        Console.WriteLine("Valid: " + calc.TryCalculate("2 / 3", out result) + ", Result: 2 / 3 = " + result);
+        Console.WriteLine("Valid: " + calc.TryCalculate("2 k 3", out result) + ", Result: 2 k 3 = " + result);
     }
 }

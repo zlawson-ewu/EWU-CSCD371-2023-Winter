@@ -163,7 +163,6 @@ public class SampleDataTests
     {
         // Arrange
         bool EmailPredicate(string email) => email.Equals(testEmail);
-        List<IPerson> people = data.People.ToList();
 
         // Act
         List<(string, string)> matches = data.FilterByEmailAddress(EmailPredicate).ToList(); 

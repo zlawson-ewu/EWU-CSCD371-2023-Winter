@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Assignment;
 
 public class SampleData : ISampleData
 {
-
     // 1.
     public IEnumerable<string> CsvRows
         => File.ReadAllLines("People.csv").Skip(1);

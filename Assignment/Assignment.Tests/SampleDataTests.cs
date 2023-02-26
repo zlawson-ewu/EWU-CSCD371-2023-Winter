@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Assignment.Tests;
 
@@ -98,9 +99,37 @@ public class SampleDataTests
             Assert.AreEqual<string>(item.LastName, peopleProperty[count].LastName);
             Assert.AreEqual<string>(item.Address.ToString()!, peopleProperty[count].Address.ToString()!);
             Assert.AreEqual<string>(item.EmailAddress, peopleProperty[count].EmailAddress);
+            Console.WriteLine(string.Format("{0, 15} {1, 15} {2, 50} {3, 30}", 
+                peopleProperty[count].FirstName, 
+                peopleProperty[count].LastName, 
+                peopleProperty[count].Address.ToString(), 
+                peopleProperty[count].EmailAddress));
             count++;
         }
-        Assert.AreEqual<int>(csvRows.Count(), count);
+        Assert.AreEqual<int>(csvRows.Count, count);
+    }
+
+    [DataTestMethod]
+    [DataRow("smahonyg@stanford.edu", "Sancho", "Mahony")]
+    [DataRow("mthurnhamr@live.com", "Mayor", "Thurnham")]
+    [DataRow("wmesnard10@amazonaws.com", "Westley", "Mesnard")]
+    [DataRow("jmullany16@eepurl.com", "Joellen", "Mullany")]
+    [DataRow("cstennine2@wired.com", "Chadd", "Stennine")]
+    public void FilterByEmailAddress_GivenFilter_ReturnsTuple(string testEmail, string testFirst, string testLast)
+    {
+        // Arrange
+        bool EmailPredicate(string email) => email.Equals(testEmail);
+        List<IPerson> people = data.People.ToList();
+
+        // Act
+        List<(string, string)> matches = data.FilterByEmailAddress(EmailPredicate).ToList(); 
+
+        // Assert
+        foreach ((string, string) item in matches)
+        {
+            Console.WriteLine(item);
+            Assert.AreEqual<(string, string)>((testFirst, testLast), item);
+        }
     }
 
     readonly List<Address> spokaneAddresses = new()

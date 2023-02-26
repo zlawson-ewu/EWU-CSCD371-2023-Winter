@@ -72,9 +72,8 @@ public class SampleDataTests
     [TestMethod]
     public void People_PopulatesWithOrderedPeopleObjects_Success()
     {
-        List<IPerson> peopleProperty = data.People.ToList();
+        // Arrange
         List<IPerson> people = new();
-
         List<string> csvRows = data.CsvRows.ToList();
         foreach (string line in csvRows)
         {
@@ -88,6 +87,10 @@ public class SampleDataTests
             .ThenBy(x => x.Address.City)
             .ThenBy(x => x.Address.Zip).ToList();
 
+        // Act
+        List<IPerson> peopleProperty = data.People.ToList();
+
+        // Assert
         int count = 0;
         foreach (IPerson item in people)
         {
@@ -97,6 +100,7 @@ public class SampleDataTests
             Assert.AreEqual<string>(item.EmailAddress, peopleProperty[count].EmailAddress);
             count++;
         }
+        Assert.AreEqual<int>(csvRows.Count(), count);
     }
 
     readonly List<Address> spokaneAddresses = new()

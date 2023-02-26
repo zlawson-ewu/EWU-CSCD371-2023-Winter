@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Assignment
 {
@@ -36,13 +33,6 @@ namespace Assignment
             return uniqueStatesSorted;
         }
 
-        public static Person ParsePersonFromRow(string row)
-        {
-            string[] attributes = row.Split(',');
-            Address address = new(attributes[4].Trim(), attributes[5].Trim(), attributes[6].Trim(), attributes[7].Trim());
-
-            return new Person(attributes[1].Trim(), attributes[2].Trim(), address, attributes[3].Trim());
-        }
         // 4.
         public IEnumerable<IPerson> People => CsvRows.Select(ParsePersonFromRow)
             .OrderBy(x => x.Address.ToString())
@@ -50,6 +40,13 @@ namespace Assignment
             .ThenBy(x => x.Address.City)
             .ThenBy(x => x.Address.Zip);
 
+        public static Person ParsePersonFromRow(string row)
+        {
+            string[] attributes = row.Split(',');
+            Address address = new(attributes[4].Trim(), attributes[5].Trim(), attributes[6].Trim(), attributes[7].Trim());
+
+            return new Person(attributes[1].Trim(), attributes[2].Trim(), address, attributes[3].Trim());
+        }
 
         // 5.
         public IEnumerable<(string FirstName, string LastName)> FilterByEmailAddress(

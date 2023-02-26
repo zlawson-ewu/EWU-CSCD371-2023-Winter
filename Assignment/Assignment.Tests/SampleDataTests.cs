@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Assignment.Tests;
 
@@ -10,6 +9,18 @@ namespace Assignment.Tests;
 public class SampleDataTests
 {
     readonly SampleData data = new();
+
+    readonly List<Address> spokaneAddresses = new()
+    {
+        new Address("507 N Howard St", "Spokane", "WA", "99201"),     //River Front Park
+        new Address("803 W Mallon Ave","Spokane", "WA", "99201"),     //David's Pizza
+        new Address("1702 S Grand Blvd", "Spokane", "WA", "99203"),   //Manito Park
+        new Address("101 W 8th Ave", "Spokane", "WA", "99204"),       //Sacred Heart Hospital
+        new Address("601 E Riverside Ave", "Spokane", "WA", "99202"), //Catalyst Building
+        new Address("916 W 2nd Ave", "Spokane", "WA", "99201"),       //Wild Sage Bistro
+        new Address("501 W Park Pl", "Spokane", "WA", "99205"),       //Corbin Park
+        new Address("1810 N Greene St", "Spokane", "WA", "99217")     //Spokane Community College
+    };
 
     [TestMethod]
     public void SampleData_FillsListFromCSVRows_Success()
@@ -71,6 +82,22 @@ public class SampleDataTests
     }
 
     [TestMethod]
+    public void ParsePersonFromRow_GivenValidString_CreatesPerson()
+    {
+        // Arrange
+        string testCsvRow = "1337, Tom, Rohr, trohr@ewu.edu, 4127 S. Sullivan Rd, Veradale, WA, 99037";
+
+        // Act
+        Person testPerson = SampleData.ParsePersonFromRow(testCsvRow);
+
+        // Assert
+        Assert.AreEqual<string>("Tom", testPerson.FirstName);
+        Assert.AreEqual<string>("Rohr", testPerson.LastName);
+        Assert.AreEqual<string>("trohr@ewu.edu", testPerson.EmailAddress);
+        Assert.AreEqual<string>("4127 S. Sullivan Rd, Veradale WA, 99037", testPerson.Address.ToString()!);
+    }
+
+    [TestMethod]
     public void People_PopulatesWithOrderedPeopleObjects_Success()
     {
         // Arrange
@@ -78,10 +105,7 @@ public class SampleDataTests
         List<string> csvRows = data.CsvRows.ToList();
         foreach (string line in csvRows)
         {
-            string[] personData = line.Split(',');
-            Address testAddress = new(personData[4].Trim(), personData[5].Trim(), personData[6].Trim(), personData[7].Trim());
-            Person person = new(personData[1].Trim(), personData[2].Trim(), testAddress, personData[3].Trim());
-            people.Add(person);
+            people.Add(SampleData.ParsePersonFromRow(line));
         }
         people = people.OrderBy(x => x.Address.ToString())
             .ThenBy(x => x.Address.State)
@@ -127,20 +151,8 @@ public class SampleDataTests
         // Assert
         foreach ((string, string) item in matches)
         {
-            Console.WriteLine(item);
+            Console.WriteLine($"{testEmail} => {item}");
             Assert.AreEqual<(string, string)>((testFirst, testLast), item);
         }
     }
-
-    readonly List<Address> spokaneAddresses = new()
-    {
-        new Address("507 N Howard St", "Spokane", "WA", "99201"),     //River Front Park
-        new Address("803 W Mallon Ave","Spokane", "WA", "99201"),     //David's Pizza
-        new Address("1702 S Grand Blvd", "Spokane", "WA", "99203"),   //Manito Park
-        new Address("101 W 8th Ave", "Spokane", "WA", "99204"),       //Sacred Heart Hospital
-        new Address("601 E Riverside Ave", "Spokane", "WA", "99202"), //Catalyst Building
-        new Address("916 W 2nd Ave", "Spokane", "WA", "99201"),       //Wild Sage Bistro
-        new Address("501 W Park Pl", "Spokane", "WA", "99205"),       //Corbin Park
-        new Address("1810 N Greene St", "Spokane", "WA", "99217")     //Spokane Community College
-    };
 }

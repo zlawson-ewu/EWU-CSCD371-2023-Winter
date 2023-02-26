@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace Assignment.Tests;
@@ -172,6 +173,25 @@ public class SampleDataTests
         {
             Console.WriteLine($"{testEmail} => {item}");
             Assert.AreEqual<(string, string)>((testFirst, testLast), item);
+        }
+    }
+
+    [TestMethod]
+    public void GetAggregateListOfStatesGivenPeopleCollection_GivenPeople_ReturnsAggregateStringOfUniqueStates()
+    {
+        // Arrange
+        List<string> states = data.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
+
+        // Act
+        string aggregate = data.GetAggregateListOfStatesGivenPeopleCollection(data.People);
+        List<string> stateTokens = aggregate.Split(",").ToList();
+        stateTokens.Sort();
+
+        // Assert
+        foreach (string stateToken in stateTokens)
+        {
+            Console.WriteLine(stateToken);
+            Assert.IsTrue(states.Contains(stateToken));
         }
     }
 }

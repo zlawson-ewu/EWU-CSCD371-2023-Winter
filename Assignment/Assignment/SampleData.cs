@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Assignment;
 
@@ -63,5 +64,14 @@ public class SampleData : ISampleData
 
     // 6.
     public string GetAggregateListOfStatesGivenPeopleCollection(
-        IEnumerable<IPerson> people) => throw new NotImplementedException();
+        IEnumerable<IPerson> people)
+    {
+        List<string> states = new();
+        foreach (IPerson item in people)
+        {
+            states.Add(item.Address.State);
+        }
+        states = states.Distinct().ToList();
+        return states.Aggregate((x, y) => x + "," + y);
+    }
 }

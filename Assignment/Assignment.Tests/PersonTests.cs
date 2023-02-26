@@ -11,7 +11,7 @@ namespace Assignment.Tests;
 public class PersonTests
 {
     static readonly string testCsvRow = "1337, Tom, Rohr, trohr@ewu.edu, 4127 S. Sullivan Rd, Veradale, WA, 99037";
-    readonly Person testPerson = Person.ParseRow(testCsvRow);
+    readonly Person testPerson = SampleData.ParsePersonFromRow(testCsvRow);
 
     [TestMethod]
     public void Person_ParseAndSetProperties_Success()

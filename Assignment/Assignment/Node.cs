@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Assignment;
 
-public class Node<T>
+public class Node<T> : IEnumerable<T>
 {
     private readonly T _value;
     private Node<T> _next;
@@ -33,8 +34,7 @@ public class Node<T>
     public Node<T> Append(T value)
     {
         if (Exists(value)) throw new ArgumentException("This item already exists in the list");
-        Node<T> newNode = new(value);
-        newNode.Next = Next;
+        Node<T> newNode = new(value) { Next = Next };
         Next = newNode;
         return newNode;
     }
@@ -66,5 +66,34 @@ public class Node<T>
         Next = this;
         // Note that any disconnected nodes will not be found in the reference tree next time and automatically garbage collected.
         // At least once all local instances of other nodes pass out of scope.
+    }
+    public IEnumerable<T> ChildItems(int maximum)
+    {
+        int count = 0;
+        var node = this;
+        do
+        {
+            yield return node.Value;
+            node = node.Next;
+            count++;
+        }
+        while (node.Next != Next && count < maximum - 1);
+        // minus 1 because 0-based indexing
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        var node = this;
+        do
+        {
+            yield return node.Value;
+            node = node.Next;
+        }
+        while (node.Next != Next);
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }

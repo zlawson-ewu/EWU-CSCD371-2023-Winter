@@ -9,6 +9,12 @@
             State = state;
             Zip = zip;
         }
+
+        public override string ToString()
+        {
+            return $"{StreetAddress}, {City} {State}, {Zip}";
+        }
+
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }

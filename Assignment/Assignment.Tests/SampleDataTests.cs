@@ -25,16 +25,23 @@ public class SampleDataTests
     [TestMethod]
     public void SampleData_FillsListFromCSVRows_Success()
     {
+        // Act
         IEnumerable<string> items = data.CsvRows;
 
+        // Assert
         Assert.AreEqual<int>(50, items.Count());
     }
 
     [TestMethod]
     public void GetUniqueSortedListOfStatesGivenCsvRows_IsSorted()
     {
-        List<string> uniqueStates = data.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
+        // Arrange
         bool nextElementAscendsPrevious = true;
+
+        // Act
+        List<string> uniqueStates = data.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
+
+        // Assert
         for (int i = 0; i < uniqueStates.Count - 1; i++)
         {
             if (StringComparer.Ordinal.Compare(uniqueStates[i], uniqueStates[i + 1]) > 0)
@@ -46,14 +53,20 @@ public class SampleDataTests
     [TestMethod]
     public void GetUniqueSortedListOfStatesGivenCsvRows_FillsUniqueStates()
     {
+        // Act
         IEnumerable<string> uniqueStates = data.GetUniqueSortedListOfStatesGivenCsvRows();
+
+        // Assert
         Assert.IsTrue(uniqueStates.Distinct().Count() == uniqueStates.Count());
     }
 
     [TestMethod]
     public void SpokaneAddresses_YieldOneDistinctState_True()
     {
+        // Arrange
         List<string> uniqueStates = new();
+
+        // Act
         foreach (Address address in spokaneAddresses) 
         {
             if (!uniqueStates.Contains(address.State))
@@ -61,18 +74,24 @@ public class SampleDataTests
                 uniqueStates.Add(address.State);
             }
         }
+
+        // Assert
         Assert.AreEqual<int>(1, uniqueStates.Count);
     }
 
     [TestMethod]
     public void GetAggregateSortedListOfStatesUsingCsvRows_ReturnsListAsSingleString()
     {
-        string uniqueStatesSorted = data.GetAggregateSortedListOfStatesUsingCsvRows();
-        string[] testArray = uniqueStatesSorted.Split(',');
+        // Arrange
         int count = 0;
         bool sameElements = true;
         List<string> uniqueStates = data.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
 
+        // Act
+        string uniqueStatesSorted = data.GetAggregateSortedListOfStatesUsingCsvRows();
+
+        // Assert
+        string[] testArray = uniqueStatesSorted.Split(',');
         foreach(string state in uniqueStates)
         {
             if (testArray[count] != state) sameElements = false;

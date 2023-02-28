@@ -1,2 +1,2 @@
 ﻿namespace Week_07_LINQ;
-public record Person(string FirstName, string LastName, DateTime dateOfBirth);
+public record class Person(string FirstName, string LastName, DateTime dateOfBirth);

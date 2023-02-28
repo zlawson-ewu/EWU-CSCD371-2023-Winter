@@ -1,7 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Week_07_LINQ;
+﻿namespace Week_07_LINQ;
 [TestClass]
 public class ListTests
 {

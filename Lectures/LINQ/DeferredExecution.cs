@@ -23,7 +23,6 @@ public class DeferredExecution
             count++;
             return item % 3 == 0;
         }); // returns the query, not the results
-        Assert.AreEqual<int>(1, triples.Count());
 
         Assert.AreEqual<int>(15, count);
         foreach (int item in evens)

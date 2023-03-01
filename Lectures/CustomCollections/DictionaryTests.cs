@@ -1,11 +1,11 @@
-﻿namespace Week_07_LINQ;
+﻿namespace Week08.CustomCollections;
 
 public class CollectionTests<TCollection, TInterface, TConstructor>
     where TCollection : IEnumerable<TCollection>, TInterface
     where TInterface : IEnumerable<TInterface>
     // where TConstructor : Func<TCollection>, new()
 {
-    
+
 }
 
 
@@ -18,13 +18,13 @@ public class DictionaryTests
     public void Setup()
     {
         People = new Dictionary<string, Person>() {
-            { "1001",  
+            { "1001",
                 new Person("John", "Doe", new DateTime(1980, 1, 1)) },
-            { "2002",  
+            { "2002",
                 new Person("Jane", "Doe", new DateTime(1981, 1, 1)) },
-            { "3003",  
+            { "3003",
                 new Person("John", "Smith", new DateTime(1982, 1, 1)) },
-            { "4004",  
+            { "4004",
                 new Person("Jane", "Smith", new DateTime(1983, 1, 1)) }
         };
     }
@@ -32,14 +32,15 @@ public class DictionaryTests
     // [TestInitialize]
     public void SetupAlternative()
     {
-        People = new Dictionary<string, Person>() {
-            ["1001"] = 
+        People = new Dictionary<string, Person>()
+        {
+            ["1001"] =
                 new Person("John", "Doe", new DateTime(1980, 1, 1)),
-            ["2002"] = 
+            ["2002"] =
                 new Person("Jane", "Smith", new DateTime(1981, 1, 1)),
-            ["3003"] = 
+            ["3003"] =
                 new Person("John", "Smith", new DateTime(1982, 1, 1)),
-            ["4004"] = 
+            ["4004"] =
                 new Person("Jane", "Doe", new DateTime(1983, 1, 1)),
         };
     }

@@ -1,0 +1,3800 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20230302150008
+Username: GLOBETROTTER\mark
+RunAs User: GLOBETROTTER\mark
+Configuration Name: 
+Machine: GLOBETROTTER (Microsoft Windows NT 10.0.22621.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 6808
+PSVersion: 5.1.22621.963
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.963
+BuildVersion: 10.0.22621.963
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\OneDrive\OneDrive - Michaelis\Documents\PowerShell_transcript.GLOBETROTTER.1A0zeq+E.20230302150008.txt
+HKLM:\hardware\ACPI\
+>
+PS>cd \
+HKLM:\
+>
+PS>cd c:
+C:\Users\mark
+>
+PS>cd C:\Git\EWU-CSCD371-2023-Winter\
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+PS>cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+PS>dir | ForEach-Object { $_.FullName }
+C:\Git\EWU-CSCD371-2023-Winter\.github
+C:\Git\EWU-CSCD371-2023-Winter\.vscode
+C:\Git\EWU-CSCD371-2023-Winter\ClassDemo
+C:\Git\EWU-CSCD371-2023-Winter\Docs
+C:\Git\EWU-CSCD371-2023-Winter\GenericsHomework
+C:\Git\EWU-CSCD371-2023-Winter\GenericsHomeWork.Tests
+C:\Git\EWU-CSCD371-2023-Winter\Lecture3
+C:\Git\EWU-CSCD371-2023-Winter\Lectures
+C:\Git\EWU-CSCD371-2023-Winter\Logger
+C:\Git\EWU-CSCD371-2023-Winter\Logger.Tests
+C:\Git\EWU-CSCD371-2023-Winter\PrincessBrideTrivia
+C:\Git\EWU-CSCD371-2023-Winter\TestResults
+C:\Git\EWU-CSCD371-2023-Winter\Vehicles
+C:\Git\EWU-CSCD371-2023-Winter\.editorconfig
+C:\Git\EWU-CSCD371-2023-Winter\.gitignore
+C:\Git\EWU-CSCD371-2023-Winter\Logger.lutconfig
+C:\Git\EWU-CSCD371-2023-Winter\Logger.sln
+C:\Git\EWU-CSCD371-2023-Winter\Program.cs
+C:\Git\EWU-CSCD371-2023-Winter\README.md
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+PS>dir | ForEach-Object { $_.Length }
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2912
+6042
+188
+3128
+925
+3262
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+PS>dir
+
+
+    Directory: C:\Git\EWU-CSCD371-2023-Winter
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2/16/2023   2:33 PM                .github
+d-----         2/16/2023   2:33 PM                .vscode
+d-----         1/24/2023   1:54 PM                ClassDemo
+d-----         2/16/2023   2:33 PM                Docs
+d-----         2/16/2023   1:57 PM                GenericsHomework
+d-----         2/16/2023   1:57 PM                GenericsHomeWork.Tests
+d-----         1/17/2023   1:53 PM                Lecture3
+d-----         2/28/2023   3:41 PM                Lectures
+d-----         2/16/2023   2:33 PM                Logger
+d-----         2/16/2023   2:33 PM                Logger.Tests
+d-----         1/16/2023   6:28 PM                PrincessBrideTrivia
+d-----         2/14/2023   4:50 PM                TestResults
+d-----          2/2/2023   1:56 PM                Vehicles
+-a----         2/16/2023   2:33 PM           2912 .editorconfig
+-a----         2/16/2023   1:57 PM           6042 .gitignore
+-a----          2/2/2023   3:08 PM            188 Logger.lutconfig
+-a----         2/16/2023   2:33 PM           3128 Logger.sln
+-a----         2/16/2023   2:33 PM            925 Program.cs
+-a----         2/16/2023   2:33 PM           3262 README.md
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+PS>get-alias %
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           % -> ForEach-Object
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+PS>dir | % { $_.Length }
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2912
+6042
+188
+3128
+925
+3262
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir | % { Test-Path $_.FullName }
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir | % { 
+if(Test-Path $_.FullName) {
+   $_.Name
+   }
+
+
+ }
+.github
+.vscode
+ClassDemo
+Docs
+GenericsHomework
+GenericsHomeWork.Tests
+Lecture3
+Lectures
+Logger
+Logger.Tests
+PrincessBrideTrivia
+TestResults
+Vehicles
+.editorconfig
+.gitignore
+Logger.lutconfig
+Logger.sln
+Program.cs
+README.md
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir | where-object { Test-Path $_.FullName } | %{ $_.Name }
+.github
+.vscode
+ClassDemo
+Docs
+GenericsHomework
+GenericsHomeWork.Tests
+Lecture3
+Lectures
+Logger
+Logger.Tests
+PrincessBrideTrivia
+TestResults
+Vehicles
+.editorconfig
+.gitignore
+Logger.lutconfig
+Logger.sln
+Program.cs
+README.md
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias ?
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           % -> ForEach-Object
+Alias           ? -> Where-Object
+Alias           h -> Get-History
+Alias           r -> Invoke-History
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+.github
+.vscode
+ClassDemo
+Docs
+GenericsHomework
+GenericsHomeWork.Tests
+Lecture3
+Lectures
+Logger
+Logger.Tests
+PrincessBrideTrivia
+TestResults
+Vehicles
+.editorconfig
+.gitignore
+Logger.lutconfig
+Logger.sln
+Program.cs
+README.md
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]help r
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]h
+
+  Id CommandLine
+  -- -----------
+   1 help ls
+   2 cls
+   3 ls | %{ $_.GetType() }
+   4 es *.exe
+   5  git push --set-upstream origin Lecture-Reflection(2023-03-02)yes
+   6 yes
+   7 zip
+   8 subst
+   9 cls
+  10 get-help ls
+  11 cls
+  12 get-help get-item
+  13 get-help
+  14 get-help man
+  15 ls
+  16 difr
+  17 dir
+  18 get-help copy
+  19 help
+  20 get-verb
+  21 help file
+  22 cls
+  23 help dir
+  24 help ls
+  25 Get-PSProvider
+  26 cd alias:
+  27 dir
+  28 cd hklm:
+  29 dir
+  30 cd hardware
+  31 pwd
+  32 cd .\ACPI\
+  33 help where
+  34 help sudo
+  35 help admin
+  36 help log
+  37 start-transcript
+  38 cd \
+  39 cd c:
+  40 cd C:\Git\EWU-CSCD371-2023-Winter\
+  41 cls
+  42 dir | ForEach-Object { $_.FullName }
+  43 dir | ForEach-Object { $_.Length }
+  44 dir
+  45 get-alias %
+  46 dir | % { $_.Length }
+  47 dir | % { Test-Path $_.FullName }
+  48 dir | % { ...
+  49 dir | where-object { Test-Path $_.FullName } | %{ $_.Name }
+  50 get-alias ?
+  51 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  52 help r
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-command 51
+>> TerminatingError(Invoke-Command): "Parameter set cannot be resolved using the specified named parameters."
+Invoke-Command : Parameter set cannot be resolved using the specified named parameters.
+At line:1 char:1
++ invoke-command 51
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-Command], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.PowerShell.Commands.InvokeCommandCommand
+Invoke-Command : Parameter set cannot be resolved using the specified named parameters.
+At line:1 char:1
++ invoke-command 51
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-Command], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.PowerShell.Commands.InvokeCommandCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Invoke-History -Id 51
+.github
+.vscode
+ClassDemo
+Docs
+GenericsHomework
+GenericsHomeWork.Tests
+Lecture3
+Lectures
+Logger
+Logger.Tests
+PrincessBrideTrivia
+TestResults
+Vehicles
+.editorconfig
+.gitignore
+Logger.lutconfig
+Logger.sln
+Program.cs
+README.md
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-history
+
+  Id CommandLine
+  -- -----------
+   1 help ls
+   2 cls
+   3 ls | %{ $_.GetType() }
+   4 es *.exe
+   5  git push --set-upstream origin Lecture-Reflection(2023-03-02)yes
+   6 yes
+   7 zip
+   8 subst
+   9 cls
+  10 get-help ls
+  11 cls
+  12 get-help get-item
+  13 get-help
+  14 get-help man
+  15 ls
+  16 difr
+  17 dir
+  18 get-help copy
+  19 help
+  20 get-verb
+  21 help file
+  22 cls
+  23 help dir
+  24 help ls
+  25 Get-PSProvider
+  26 cd alias:
+  27 dir
+  28 cd hklm:
+  29 dir
+  30 cd hardware
+  31 pwd
+  32 cd .\ACPI\
+  33 help where
+  34 help sudo
+  35 help admin
+  36 help log
+  37 start-transcript
+  38 cd \
+  39 cd c:
+  40 cd C:\Git\EWU-CSCD371-2023-Winter\
+  41 cls
+  42 dir | ForEach-Object { $_.FullName }
+  43 dir | ForEach-Object { $_.Length }
+  44 dir
+  45 get-alias %
+  46 dir | % { $_.Length }
+  47 dir | % { Test-Path $_.FullName }
+  48 dir | % { ...
+  49 dir | where-object { Test-Path $_.FullName } | %{ $_.Name }
+  50 get-alias ?
+  51 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  52 help r
+  53 h
+  54 invoke-command 51
+  55 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias h
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           h -> Get-History
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]h
+
+  Id CommandLine
+  -- -----------
+   1 help ls
+   2 cls
+   3 ls | %{ $_.GetType() }
+   4 es *.exe
+   5  git push --set-upstream origin Lecture-Reflection(2023-03-02)yes
+   6 yes
+   7 zip
+   8 subst
+   9 cls
+  10 get-help ls
+  11 cls
+  12 get-help get-item
+  13 get-help
+  14 get-help man
+  15 ls
+  16 difr
+  17 dir
+  18 get-help copy
+  19 help
+  20 get-verb
+  21 help file
+  22 cls
+  23 help dir
+  24 help ls
+  25 Get-PSProvider
+  26 cd alias:
+  27 dir
+  28 cd hklm:
+  29 dir
+  30 cd hardware
+  31 pwd
+  32 cd .\ACPI\
+  33 help where
+  34 help sudo
+  35 help admin
+  36 help log
+  37 start-transcript
+  38 cd \
+  39 cd c:
+  40 cd C:\Git\EWU-CSCD371-2023-Winter\
+  41 cls
+  42 dir | ForEach-Object { $_.FullName }
+  43 dir | ForEach-Object { $_.Length }
+  44 dir
+  45 get-alias %
+  46 dir | % { $_.Length }
+  47 dir | % { Test-Path $_.FullName }
+  48 dir | % { ...
+  49 dir | where-object { Test-Path $_.FullName } | %{ $_.Name }
+  50 get-alias ?
+  51 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  52 help r
+  53 h
+  54 invoke-command 51
+  55 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  56 get-history
+  57 get-alias h
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]#47
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]#51
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]53..57
+53
+54
+55
+56
+57
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]53..57 | %{ Invoke-History -id $_ }
+
+  Id CommandLine
+  -- -----------
+   1 help ls
+   2 cls
+   3 ls | %{ $_.GetType() }
+   4 es *.exe
+   5  git push --set-upstream origin Lecture-Reflection(2023-03-02)yes
+   6 yes
+   7 zip
+   8 subst
+   9 cls
+  10 get-help ls
+  11 cls
+  12 get-help get-item
+  13 get-help
+  14 get-help man
+  15 ls
+  16 difr
+  17 dir
+  18 get-help copy
+  19 help
+  20 get-verb
+  21 help file
+  22 cls
+  23 help dir
+  24 help ls
+  25 Get-PSProvider
+  26 cd alias:
+  27 dir
+  28 cd hklm:
+  29 dir
+  30 cd hardware
+  31 pwd
+  32 cd .\ACPI\
+  33 help where
+  34 help sudo
+  35 help admin
+  36 help log
+  37 start-transcript
+  38 cd \
+  39 cd c:
+  40 cd C:\Git\EWU-CSCD371-2023-Winter\
+  41 cls
+  42 dir | ForEach-Object { $_.FullName }
+  43 dir | ForEach-Object { $_.Length }
+  44 dir
+  45 get-alias %
+  46 dir | % { $_.Length }
+  47 dir | % { Test-Path $_.FullName }
+  48 dir | % { ...
+  49 dir | where-object { Test-Path $_.FullName } | %{ $_.Name }
+  50 get-alias ?
+  51 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  52 help r
+  53 h
+  54 invoke-command 51
+  55 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  56 get-history
+  57 get-alias h
+  58 h
+  59 #47
+  60 #51
+  61 53..57
+]TerminatingError(Invoke-Command): "Parameter set cannot be resolved using the specified named parameters."
+Invoke-Command : Parameter set cannot be resolved using the specified named parameters.
+At line:1 char:1
++ invoke-command 51
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-Command], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.PowerShell.Commands.InvokeCommandCommand
+Invoke-History : Parameter set cannot be resolved using the specified named parameters.
+At line:1 char:13
++ 53..57 | %{ Invoke-History -id $_ }
++             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-History], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.PowerShell.Commands.InvokeHistoryCommand
+Invoke-History : Parameter set cannot be resolved using the specified named parameters.
+At line:1 char:13
++ 53..57 | %{ Invoke-History -id $_ }
++             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-History], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.PowerShell.Commands.InvokeHistoryCommand
+
+.github
+.vscode
+ClassDemo
+Docs
+GenericsHomework
+GenericsHomeWork.Tests
+Lecture3
+Lectures
+Logger
+Logger.Tests
+PrincessBrideTrivia
+TestResults
+Vehicles
+.editorconfig
+.gitignore
+Logger.lutconfig
+Logger.sln
+Program.cs
+README.md
+   1 help ls
+   2 cls
+   3 ls | %{ $_.GetType() }
+   4 es *.exe
+   5  git push --set-upstream origin Lecture-Reflection(2023-03-02)yes
+   6 yes
+   7 zip
+   8 subst
+   9 cls
+  10 get-help ls
+  11 cls
+  12 get-help get-item
+  13 get-help
+  14 get-help man
+  15 ls
+  16 difr
+  17 dir
+  18 get-help copy
+  19 help
+  20 get-verb
+  21 help file
+  22 cls
+  23 help dir
+  24 help ls
+  25 Get-PSProvider
+  26 cd alias:
+  27 dir
+  28 cd hklm:
+  29 dir
+  30 cd hardware
+  31 pwd
+  32 cd .\ACPI\
+  33 help where
+  34 help sudo
+  35 help admin
+  36 help log
+  37 start-transcript
+  38 cd \
+  39 cd c:
+  40 cd C:\Git\EWU-CSCD371-2023-Winter\
+  41 cls
+  42 dir | ForEach-Object { $_.FullName }
+  43 dir | ForEach-Object { $_.Length }
+  44 dir
+  45 get-alias %
+  46 dir | % { $_.Length }
+  47 dir | % { Test-Path $_.FullName }
+  48 dir | % { ...
+  49 dir | where-object { Test-Path $_.FullName } | %{ $_.Name }
+  50 get-alias ?
+  51 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  52 help r
+  53 h
+  54 invoke-command 51
+  55 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  56 get-history
+  57 get-alias h
+  58 h
+  59 #47
+  60 #51
+  61 53..57
+
+PSPath              : Microsoft.PowerShell.Core\Alias::h
+PSDrive             : Alias
+PSProvider          : Microsoft.PowerShell.Core\Alias
+PSIsContainer       : False
+ReferencedCommand   : Get-History
+ResolvedCommand     : Get-History
+Definition          : Get-History
+Options             : AllScope
+Description         :
+OutputType          : {Microsoft.PowerShell.Commands.HistoryInfo}
+Name                : h
+CommandType         : Alias
+Source              :
+Version             :
+Visibility          : Public
+ModuleName          :
+Module              :
+RemotingCapability  : PowerShell
+Parameters          : {[Id, System.Management.Automation.ParameterMetadata], [Count,
+                      System.Management.Automation.ParameterMetadata], [Verbose, System.Management.Automation.ParameterMetadata],
+                      [Debug, System.Management.Automation.ParameterMetadata]...}
+ParameterSets       :
+HelpUri             : https://go.microsoft.com/fwlink/?LinkID=113317
+ResolvedCommandName : Get-History
+DisplayName         : h -> Get-History
+
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cl
+cl : The term 'cl' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ cl
++ ~~
+    + CategoryInfo          : ObjectNotFound: (cl:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+cl : The term 'cl' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of
+the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ cl
++ ~~
+    + CategoryInfo          : ObjectNotFound: (cl:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es exif
+C:\ProgramData\scoop\buckets\extras\bucket\jexiftoolgui.json
+C:\Users\mark\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\@d3fc\d3fc-rebind\src\transform\regexify.j
+s
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\default\Skins\Skin-ExifListing-Exif.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\ClassicTabs\Skins\Skin-ExifListing.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\default\Skins\Skin-ExifListing.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\PhotoStack\Skins\Skin-ExifListing.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\Photos\nGallery\templates\ngalleryOrange\template.exif.begintag.html
+C:\Dropbox\Scratch\WebHost4Life\michaelis\Photos\nGallery\templates\ngalleryOrange\template.exif.endtag.html
+C:\Dropbox\Scratch\WebHost4Life\michaelis\Photos\nGallery\templates\ngalleryOrange\template.exif.item.html
+C:\Dropbox\Profile\Archive\2014.09.20\AppData\Local\Microsoft\Windows\Explorer\thumbcache_exif.db
+C:\Users\mark\AppData\Local\Microsoft\Windows\Explorer\thumbcache_exif.db
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\default\Views\View-Exif.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\PhotoStack\Views\View-Exif.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\photos\viewExif.aspx
+C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe
+C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.ini
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\default\Images\viewexificon.png
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\Glimmer\Images\viewexificon.png
+C:\Dropbox\Profile\Application Data\Adobe\Adobe Lightroom Classic CC\Plugins\gps-20180718.304\gps-jfriedl.lrplugin\lib\Image\ExifToo
+l\WriteExif.pl
+C:\Dropbox\Profile\Application Data\Adobe\Adobe Lightroom Classic CC\Plugins\metadatawrangler-20180701.163\metadatawrangler-jfriedl.
+lrplugin\lib\Image\ExifTool\WriteExif.pl
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es exif.exe
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es ex*tool.exe
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ViewEXIF
+ViewEXIF : The term 'ViewEXIF' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ViewEXIF
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (ViewEXIF:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ViewEXIF : The term 'ViewEXIF' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ViewEXIF
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (ViewEXIF:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'
+C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]& 'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]exiftool
+    exiftool - Read and write meta information in files
+
+RUNNING IN WINDOWS
+    Drag and drop files or folders onto the exiftool executable to display
+    meta information, or rename to "exiftool.exe" and run from the command
+    line to access all exiftool features.
+
+    This stand-alone Windows version allows simple command-line options to
+    be added to the name of the executable (in brackets and separated by
+    spaces at the end of the name), providing a mechanism to use options
+    when launched via the mouse. For example, changing the executable name
+    to "exiftool(-a -u -g1 -w txt).exe" gives a drag-and-drop utility which
+    generates sidecar ".txt" files with detailed meta information. As
+    shipped, the -k option is added to cause exiftool to pause before
+    terminating (keeping the command window open). Options may also be added
+
+SYNOPSIS
+  Reading
+    exiftool [*OPTIONS*] [-*TAG*...] [--*TAG*...] *FILE*...
+
+  Writing
+    exiftool [*OPTIONS*] -*TAG*[+-<]=[*VALUE*]... *FILE*...
+^CCan't spawn "cmd.exe": Inappropriate I/O control operation at script/exiftool line 7234.
+]TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-help
+
+TOPIC
+    Windows PowerShell Help System
+
+SHORT DESCRIPTION
+    Displays help about Windows PowerShell cmdlets and concepts. 
+
+LONG DESCRIPTION
+    Windows PowerShell Help describes Windows PowerShell cmdlets,
+    functions, scripts, and modules, and explains concepts, including
+    the elements of the Windows PowerShell language.
+
+    Windows PowerShell does not include help files, but you can read the
+    help topics online, or use the Update-Help cmdlet to download help files
+    to your computer and then use the Get-Help cmdlet to display the help
+    topics at the command line.
+
+    You can also use the Update-Help cmdlet to download updated help files
+    as they are released so that your local help content is never obsolete. 
+
+    Without help files, Get-Help displays auto-generated help for cmdlets, 
+    functions, and scripts.
+
+
+  ONLINE HELP    
+    You can find help for Windows PowerShell online in the TechNet Library
+    beginning at http://go.microsoft.com/fwlink/?LinkID=108518. 
+
+    To open online help for any cmdlet or function, type:
+
+        Get-Help <cmdlet-name> -Online    
+
+  UPDATE-HELP
+    To download and install help files on your computer:
+
+       1. Start Windows PowerShell with the "Run as administrator" option.
+       2. Type:
+
+          Update-Help
+
+    After the help files are installed, you can use the Get-Help cmdlet to
+    display the help topics. You can also use the Update-Help cmdlet to
+    download updated help files so that your local help files are always
+    up-to-date.
+    
+    For more information about the Update-Help cmdlet, type:
+
+       Get-Help Update-Help -Online
+
+    or go to: http://go.microsoft.com/fwlink/?LinkID=210614
+
+
+  GET-HELP
+    The Get-Help cmdlet displays help at the command line from content in
+    help files on your computer. Without help files, Get-Help displays basic
+    help about cmdlets and functions. You can also use Get-Help to display
+    online help for cmdlets and functions.
+
+    To get help for a cmdlet, type:
+
+        Get-Help <cmdlet-name>
+    
+    To get online help, type:
+   
+        Get-Help <cmdlet-name> -Online    
+
+    The titles of conceptual topics begin with "About_".
+    To get help for a concept or language element, type:
+
+        Get-Help About_<topic-name>
+
+    To search for a word or phrase in all help files, type:
+
+        Get-Help <search-term>
+
+    For more information about the Get-Help cmdlet, type:
+
+        Get-Help Get-Help -Online
+
+    or go to: http://go.microsoft.com/fwlink/?LinkID=113316
+
+
+  EXAMPLES:
+      Save-Help              : Download help files from the Internet and saves
+                               them on a file share.
+      Update-Help            : Downloads and installs help files from the
+                               Internet or a file share.
+      Get-Help Get-Process   : Displays help about the Get-Process cmdlet.   
+      Get-Help Get-Process -Online
+                             : Opens online help for the Get-Process cmdlet.                            
+      Help Get-Process       : Displays help about Get-Process one page at a time.
+      Get-Process -?         : Displays help about the Get-Process cmdlet.      
+      Get-Help About_Modules : Displays help about Windows PowerShell modules.
+      Get-Help remoting      : Searches the help topics for the word "remoting."
+
+  SEE ALSO:
+      about_Updatable_Help
+      Get-Help
+      Save-Help
+      Update-Help
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]help set-alias
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]help set-alias -Examples
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]set-alias -name ViewEXIF -Value set-alias  'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'
+>> TerminatingError(Set-Alias): "A positional parameter cannot be found that accepts argument 'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'."
+Set-Alias : A positional parameter cannot be found that accepts argument 
+'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'.
+At line:1 char:1
++ set-alias -name ViewEXIF -Value set-alias  'C:\Dropbox\Programs\Utili ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Alias], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetAliasCommand
+Set-Alias : A positional parameter cannot be found that accepts argument 'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'.
+At line:1 char:1
++ set-alias -name ViewEXIF -Value set-alias  'C:\Dropbox\Programs\Utili ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Alias], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetAliasCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]set-alias -name ViewEXIF -Value  'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]viewexif
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias ls
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           ls -> Get-ChildItem
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]set-alias 
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]help set-alias 
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es exif
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\default\Skins\Skin-ExifListing-Exif.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\ClassicTabs\Skins\Skin-ExifListing.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\default\Skins\Skin-ExifListing.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\PhotoStack\Skins\Skin-ExifListing.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\Photos\nGallery\templates\ngalleryOrange\template.exif.begintag.html
+C:\Dropbox\Scratch\WebHost4Life\michaelis\Photos\nGallery\templates\ngalleryOrange\template.exif.endtag.html
+C:\Dropbox\Scratch\WebHost4Life\michaelis\Photos\nGallery\templates\ngalleryOrange\template.exif.item.html
+C:\Dropbox\Profile\Archive\2014.09.20\AppData\Local\Microsoft\Windows\Explorer\thumbcache_exif.db
+C:\Users\mark\AppData\Local\Microsoft\Windows\Explorer\thumbcache_exif.db
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\default\Views\View-Exif.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\PhotoStack\Views\View-Exif.ascx
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\photos\viewExif.aspx
+C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe
+C:\Windows\Prefetch\VIEWEXIF.EXE-A2801FE3.pf
+C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.ini
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\default\Images\viewexificon.png
+C:\Dropbox\Scratch\WebHost4Life\michaelis\family\www\Themes\Galleries\Glimmer\Images\viewexificon.png
+C:\Dropbox\Profile\Application Data\Adobe\Adobe Lightroom Classic CC\Plugins\gps-20180718.304\gps-jfriedl.lrplugin\lib\Image\ExifToo
+l\WriteExif.pl
+C:\Dropbox\Profile\Application Data\Adobe\Adobe Lightroom Classic CC\Plugins\metadatawrangler-20180701.163\metadatawrangler-jfriedl.
+lrplugin\lib\Image\ExifTool\WriteExif.pl
+C:\Users\mark\AppData\Local\Temp\par-6d61726b\cache-exiftool-12.56\inc\lib\WriteExif.pl
+C:\Users\mark\AppData\Local\Temp\par-6d61726b\cache-exiftool-12.56\inc\lib\Image\ExifTool\WriteExif.pl
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es exiftool
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es viewexif
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]h
+
+  Id CommandLine
+  -- -----------
+   1 help ls
+   2 cls
+   3 ls | %{ $_.GetType() }
+   4 es *.exe
+   5  git push --set-upstream origin Lecture-Reflection(2023-03-02)yes
+   6 yes
+   7 zip
+   8 subst
+   9 cls
+  10 get-help ls
+  11 cls
+  12 get-help get-item
+  13 get-help
+  14 get-help man
+  15 ls
+  16 difr
+  17 dir
+  18 get-help copy
+  19 help
+  20 get-verb
+  21 help file
+  22 cls
+  23 help dir
+  24 help ls
+  25 Get-PSProvider
+  26 cd alias:
+  27 dir
+  28 cd hklm:
+  29 dir
+  30 cd hardware
+  31 pwd
+  32 cd .\ACPI\
+  33 help where
+  34 help sudo
+  35 help admin
+  36 help log
+  37 start-transcript
+  38 cd \
+  39 cd c:
+  40 cd C:\Git\EWU-CSCD371-2023-Winter\
+  41 cls
+  42 dir | ForEach-Object { $_.FullName }
+  43 dir | ForEach-Object { $_.Length }
+  44 dir
+  45 get-alias %
+  46 dir | % { $_.Length }
+  47 dir | % { Test-Path $_.FullName }
+  48 dir | % { ...
+  49 dir | where-object { Test-Path $_.FullName } | %{ $_.Name }
+  50 get-alias ?
+  51 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  52 help r
+  53 h
+  54 invoke-command 51
+  55 dir | ? { Test-Path $_.FullName } | %{ $_.Name }
+  56 get-history
+  57 get-alias h
+  58 h
+  59 #47
+  60 #51
+  61 53..57
+  62 get-alias h
+  63 cl
+  64 cls
+  65 es exif
+  66 es exif.exe
+  67 es ex*tool.exe
+  68 ViewEXIF
+  69 'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'
+  70 & 'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'
+  71 cls
+  72 exiftool
+  73 get-help
+  74 help set-alias
+  75 help set-alias -Examples
+  76 set-alias -name ViewEXIF -Value set-alias  'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'
+  77 set-alias -name ViewEXIF -Value  'C:\Dropbox\Programs\Utilities\ViewEXIF\ViewEXIF.exe'
+  78 viewexif
+  79 get-alias ls
+  80 set-alias
+  81 help set-alias
+  82 cls
+  83 es exif
+  84 es exiftool
+  85 es viewexif
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es ex*tool.exe
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es v*tool.exe
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es exiftool.exe
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es shim exiftool.exe
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es shims exiftool.exe
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]xls
+xls : The term 'xls' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ xls
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (xls:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+xls : The term 'xls' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of
+the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ xls
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (xls:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Find-Package vim
+
+Name                           Version          Source           Summary
+----                           -------          ------           -------
+vim                            2.0.5            PSGallery        Open files in gvim from the PowerShell pipeline.
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | %{ $_.CreationTime }
+
+Thursday, February 16, 2023 2:33:43 PM
+Thursday, February 16, 2023 2:33:43 PM
+Thursday, January 12, 2023 1:51:03 PM
+Monday, January 16, 2023 6:28:30 PM
+Thursday, February 16, 2023 1:50:06 PM
+Tuesday, February 14, 2023 4:49:16 PM
+Tuesday, January 17, 2023 1:53:09 PM
+Tuesday, February 14, 2023 1:54:09 PM
+Tuesday, January 24, 2023 1:54:10 PM
+Tuesday, January 24, 2023 1:54:10 PM
+Thursday, January 12, 2023 1:47:00 PM
+Thursday, January 26, 2023 4:27:46 PM
+Thursday, January 26, 2023 2:25:02 PM
+Thursday, February 16, 2023 2:33:43 PM
+Thursday, January 12, 2023 1:41:03 PM
+Thursday, February 2, 2023 3:08:27 PM
+Thursday, February 16, 2023 2:33:43 PM
+Thursday, February 16, 2023 2:33:43 PM
+Thursday, January 12, 2023 1:41:03 PM
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | %{ $_.CreationTime.Month.GetType()}
+
+IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+True     True     Int32                                    System.ValueType
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | ?{ $_.CreationTime.Month -gt 2 }
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir
+
+
+    Directory: C:\Git\EWU-CSCD371-2023-Winter
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2/16/2023   2:33 PM                .github
+d-----         2/16/2023   2:33 PM                .vscode
+d-----         1/24/2023   1:54 PM                ClassDemo
+d-----         2/16/2023   2:33 PM                Docs
+d-----         2/16/2023   1:57 PM                GenericsHomework
+d-----         2/16/2023   1:57 PM                GenericsHomeWork.Tests
+d-----         1/17/2023   1:53 PM                Lecture3
+d-----         2/28/2023   3:41 PM                Lectures
+d-----         2/16/2023   2:33 PM                Logger
+d-----         2/16/2023   2:33 PM                Logger.Tests
+d-----         1/16/2023   6:28 PM                PrincessBrideTrivia
+d-----         2/14/2023   4:50 PM                TestResults
+d-----          2/2/2023   1:56 PM                Vehicles
+-a----         2/16/2023   2:33 PM           2912 .editorconfig
+-a----         2/16/2023   1:57 PM           6042 .gitignore
+-a----          2/2/2023   3:08 PM            188 Logger.lutconfig
+-a----         2/16/2023   2:33 PM           3128 Logger.sln
+-a----         2/16/2023   2:33 PM            925 Program.cs
+-a----         2/16/2023   2:33 PM           3262 README.md
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | ?{ $_.CreationTime.Month -ge 2 }
+
+
+    Directory: C:\Git\EWU-CSCD371-2023-Winter
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2/16/2023   2:33 PM                .github
+d-----         2/16/2023   2:33 PM                .vscode
+d-----         2/16/2023   1:57 PM                GenericsHomework
+d-----         2/16/2023   1:57 PM                GenericsHomeWork.Tests
+d-----         2/28/2023   3:41 PM                Lectures
+-a----         2/16/2023   2:33 PM           2912 .editorconfig
+-a----          2/2/2023   3:08 PM            188 Logger.lutconfig
+-a----         2/16/2023   2:33 PM           3128 Logger.sln
+-a----         2/16/2023   2:33 PM            925 Program.cs
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | ?{ $_.CreationTime -ge '2\1\2023' }
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/12/2023 13:51:03" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/12/2023 13:51:03" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/16/2023 18:28:30" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/16/2023 18:28:30" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "02/16/2023 13:50:06" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "02/16/2023 13:50:06" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "02/14/2023 16:49:16" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "02/14/2023 16:49:16" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/17/2023 13:53:09" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/17/2023 13:53:09" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "02/14/2023 13:54:09" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "02/14/2023 13:54:09" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/24/2023 13:54:10" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/24/2023 13:54:10" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/24/2023 13:54:10" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/24/2023 13:54:10" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/12/2023 13:47:00" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/12/2023 13:47:00" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/26/2023 16:27:46" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/26/2023 16:27:46" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/26/2023 14:25:02" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/26/2023 14:25:02" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "01/12/2023 13:41:03" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "01/12/2023 13:41:03" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "02/02/2023 15:08:27" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "02/02/2023 15:08:27" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type "System.DateTime". Error:
+"String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+
+Could not compare "02/16/2023 14:33:43" to "2\1\2023". Error: "Cannot convert value "2\1\2023" to type 
+"System.DateTime". Error: "String was not recognized as a valid DateTime.""
+At line:1 char:9
++ ls | ?{ $_.CreationTime -ge '2\1\2023' }
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ComparisonFailure
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Get-Date
+
+Thursday, March 2, 2023 3:36:21 PM
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:45
++ ls | ?{ $_.CreationTime -ge (get-date -date '2\1\2023') }
++                                             ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-date -date '2\1\2023'
+>> TerminatingError(Get-Date): "Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not recognized as a valid DateTime.""
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was 
+not recognized as a valid DateTime."
+At line:1 char:16
++ get-date -date '2\1\2023'
++                ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+Get-Date : Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: "String was not
+recognized as a valid DateTime."
+At line:1 char:16
++ get-date -date '2\1\2023'
++                ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Date], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetDateCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-date -date '2/1/2023'
+
+Wednesday, February 1, 2023 12:00:00 AM
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | ?{ $_.CreationTime -ge (get-date -date '2/1/2023') }
+
+
+    Directory: C:\Git\EWU-CSCD371-2023-Winter
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2/16/2023   2:33 PM                .github
+d-----         2/16/2023   2:33 PM                .vscode
+d-----         2/16/2023   1:57 PM                GenericsHomework
+d-----         2/16/2023   1:57 PM                GenericsHomeWork.Tests
+d-----         2/28/2023   3:41 PM                Lectures
+-a----         2/16/2023   2:33 PM           2912 .editorconfig
+-a----          2/2/2023   3:08 PM            188 Logger.lutconfig
+-a----         2/16/2023   2:33 PM           3128 Logger.sln
+-a----         2/16/2023   2:33 PM            925 Program.cs
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | ?{ $_.CreationTime -ge '2/1/2023' }
+
+
+    Directory: C:\Git\EWU-CSCD371-2023-Winter
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2/16/2023   2:33 PM                .github
+d-----         2/16/2023   2:33 PM                .vscode
+d-----         2/16/2023   1:57 PM                GenericsHomework
+d-----         2/16/2023   1:57 PM                GenericsHomeWork.Tests
+d-----         2/28/2023   3:41 PM                Lectures
+-a----         2/16/2023   2:33 PM           2912 .editorconfig
+-a----          2/2/2023   3:08 PM            188 Logger.lutconfig
+-a----         2/16/2023   2:33 PM           3128 Logger.sln
+-a----         2/16/2023   2:33 PM            925 Program.cs
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | ?{ $_.CreationTime -ge '2/1/2023' } | ?{ $_.Name }
+
+
+    Directory: C:\Git\EWU-CSCD371-2023-Winter
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2/16/2023   2:33 PM                .github
+d-----         2/16/2023   2:33 PM                .vscode
+d-----         2/16/2023   1:57 PM                GenericsHomework
+d-----         2/16/2023   1:57 PM                GenericsHomeWork.Tests
+d-----         2/28/2023   3:41 PM                Lectures
+-a----         2/16/2023   2:33 PM           2912 .editorconfig
+-a----          2/2/2023   3:08 PM            188 Logger.lutconfig
+-a----         2/16/2023   2:33 PM           3128 Logger.sln
+-a----         2/16/2023   2:33 PM            925 Program.cs
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]find-module *vim*
+
+Version    Name                                Repository           Description
+-------    ----                                ----------           -----------
+8.0.1.2... VMware.Vim                          PSGallery            This Windows PowerShell module contains PowerCLI Vim.
+13.0.0.... VMware.VimAutomation.Sdk            PSGallery            This Windows PowerShell module contains PowerCLI Sdk.
+13.0.0.... VMware.VimAutomation.Common         PSGallery            This Windows PowerShell module contains functionality requir...
+13.0.0.... VMware.VimAutomation.Core           PSGallery            This Windows PowerShell module contains Windows PowerShell c...
+13.0.0.... VMware.VimAutomation.Cis.Core       PSGallery            This Windows PowerShell module contains PowerCLI Cloud Infra...
+13.0.0.... VMware.VimAutomation.Vds            PSGallery            This Windows PowerShell module contains PowerCLI VDS cmdlets.
+13.0.0.... VMware.VimAutomation.Storage        PSGallery            This Windows PowerShell module contains PowerCLI storage man...
+12.7.0.... VMware.VimAutomation.Srm            PSGallery            This Windows PowerShell module contains PowerCLI SRM cmdlets.
+12.0.0.... VMware.VimAutomation.License        PSGallery            This Windows PowerShell module contains PowerCLI cmdlets for...
+12.5.0.... VMware.VimAutomation.vROps          PSGallery            This Windows PowerShell module contains PowerCLI vROps cmdlets.
+13.0.0.... VMware.VimAutomation.Nsxt           PSGallery            This Windows PowerShell module contains PowerCLI NSXT cmdlets.
+13.0.0.... VMware.VimAutomation.Cloud          PSGallery            This Windows PowerShell module contains PowerCLI Cloud cmdlets.
+13.0.0.... VMware.VimAutomation.Vmc            PSGallery            This Windows PowerShell module contains PowerCLI VMC cmdlets.
+13.0.0.... VMware.VimAutomation.Security       PSGallery            This Windows PowerShell module contains PowerCLI security ma...
+13.0.0.... VMware.VimAutomation.HorizonView    PSGallery            This Windows PowerShell module contains Connect/Disconnect c...
+13.0.0.... VMware.VimAutomation.Hcx            PSGallery            This Windows PowerShell module contains PowerCLI HCX cmdlets.
+1.6.0.0    VMware.VimAutomation.StorageUtility PSGallery            This Windows PowerShell module contains utility scripts for ...
+12.4.0.... VMware.VimAutomation.WorkloadMan... PSGallery            PowerShell commands for automation of workloads related func...
+6.5.4.7... VMware.VimAutomation.HA             PSGallery            This Windows PowerShell module contains PowerCLI HA cmdlets.
+10.0.0.... VMware.VimAutomation.PCloud         PSGallery            This Windows PowerShell module contains PowerCLI vCloud Air ...
+2.0.5      vim                                 PSGallery            Open files in gvim from the PowerShell pipeline.
+0.0.3      VMware.VimAutomation.Custom         PSGallery            This module extends the functionality of PowerCLI
+1.3.0      Virten.net.VimAutomation            PSGallery            Virten.net PowerCLI Automation Module
+1.3.2      VimTabCompletion                    PSGallery            Powershell Tab Completion for Vim
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]find-package vim
+
+Name                           Version          Source           Summary
+----                           -------          ------           -------
+vim                            2.0.5            PSGallery        Open files in gvim from the PowerShell pipeline.
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]find-module vim
+
+Version    Name                                Repository           Description
+-------    ----                                ----------           -----------
+2.0.5      vim                                 PSGallery            Open files in gvim from the PowerShell pipeline.
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]ls | ?{ $_.CreationTime -ge '2/1/2023' } | ?{ $_.Name }
+
+
+    Directory: C:\Git\EWU-CSCD371-2023-Winter
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2/16/2023   2:33 PM                .github
+d-----         2/16/2023   2:33 PM                .vscode
+d-----         2/16/2023   1:57 PM                GenericsHomework
+d-----         2/16/2023   1:57 PM                GenericsHomeWork.Tests
+d-----         2/28/2023   3:41 PM                Lectures
+-a----         2/16/2023   2:33 PM           2912 .editorconfig
+-a----          2/2/2023   3:08 PM            188 Logger.lutconfig
+-a----         2/16/2023   2:33 PM           3128 Logger.sln
+-a----         2/16/2023   2:33 PM            925 Program.cs
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Write-Output "Hello! What is the date $(Get-Date)"
+Hello! What is the date 03/02/2023 15:50:01
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Write-Output 'Hello! What is the date $(Get-Date)'
+Hello! What is the date $(Get-Date)
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]$Name = "Inigo Montoya"
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Write-Output "Hello! My name is $Name."
+Hello! My name is Inigo Montoya.
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable:
+
+Name                           Value
+----                           -----
+$                              Hello! My name is $Name.
+?                              True
+^                              Write-Output
+args                           {}
+ChocolateyProfile              C:\ProgramData\chocolatey\helpers\chocolateyProfile.psm1
+ChocolateyTabSettings          @{AllCommands=False}
+ConfirmPreference              High
+ConsoleFileName
+DebugPreference                SilentlyContinue
+Error                          {Cannot bind parameter 'Date'. Cannot convert value "2\1\2023" to type "System.DateTime". Error: ...
+ErrorActionPreference          Continue
+ErrorView                      NormalView
+ExecutionContext               System.Management.Automation.EngineIntrinsics
+false                          False
+FormatEnumerationLimit         4
+GitMissing                     False
+GitPromptScriptBlock           ...
+GitPromptSettings              @{DefaultForegroundColor=; BeforeText= [; BeforeForegroundColor=Yellow; BeforeBackgroundColor=; D...
+GitStatus                      @{HasWorking=False; Branch=Lecture-Reflection(2023-03-02); AheadBy=0; Working=System.Object[]; Up...
+GitTabSettings                 @{AllCommands=False}
+HOME                           C:\Users\mark
+Host                           System.Management.Automation.Internal.Host.InternalHost
+InformationPreference          SilentlyContinue
+input                          System.Collections.ArrayList+ArrayListEnumeratorSimple
+LASTEXITCODE                   0
+MaximumAliasCount              4096
+MaximumDriveCount              4096
+MaximumErrorCount              256
+MaximumFunctionCount           4096
+MaximumHistoryCount            4096
+MaximumVariableCount           4096
+MyInvocation                   System.Management.Automation.InvocationInfo
+Name                           Inigo Montoya
+NestedPromptLevel              0
+null
+OutputEncoding                 System.Text.ASCIIEncoding
+PID                            6808
+PreviousWindowTitle            Windows PowerShell
+PROFILE                        C:\OneDrive\OneDrive - Michaelis\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+ProgressPreference             Continue
+PSBoundParameters              {}
+PSCommandPath
+PSCulture                      en-US
+PSDefaultParameterValues       {}
+PSEdition                      Desktop
+PSEmailServer
+PSHOME                         C:\Windows\System32\WindowsPowerShell\v1.0
+PSScriptRoot
+PSSessionApplicationName       wsman
+PSSessionConfigurationName     http://schemas.microsoft.com/powershell/Microsoft.PowerShell
+PSSessionOption                System.Management.Automation.Remoting.PSSessionOption
+PSUICulture                    en-US
+PSVersionTable                 {PSVersion, PSEdition, PSCompatibleVersions, BuildVersion...}
+PWD                            C:\Git\EWU-CSCD371-2023-Winter
+ShellId                        Microsoft.PowerShell
+StackTrace                        at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+TortoiseGitSettings            @{TortoiseGitCommands=System.Collections.Hashtable; TortoiseGitPath=C:\Program Files\TortoiseGit\...
+true                           True
+VcsPromptStatuses              {...
+VerbosePreference              SilentlyContinue
+WarningPreference              Continue
+WhatIfPreference               False
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable: | ? {$_.Name -eq 'Name' }
+
+Name                           Value
+----                           -----
+Name                           Inigo Montoya
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable: | ? {$_ -eq 'Name' }
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable: | ? {$_.Name -eq 'Name' } | Select-Object -Property Name
+
+Name
+----
+Name
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable: | ? {$_.Name -eq 'Name' } | Select-Object Name
+
+Name
+----
+Name
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable: | ? {$_.Name -eq 'Name' } | Select-Object -ExpandProperty Name
+Name
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable: | ? {$_.Name -eq 'Name' } | Select-Object Name,Value
+
+Name Value
+---- -----
+Name Inigo Montoya
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable: | ? {$_.Name -eq 'Name' } | Select-Object Name
+
+Name
+----
+Name
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dir variable: | ? {$_.Name -eq 'Name' } | Select-Object -ExpandProperty Name
+Name
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias select-object
+get-alias : This command cannot find a matching alias because an alias with the name 'select-object' does not exist.
+At line:1 char:1
++ get-alias select-object
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (select-object:String) [Get-Alias], ItemNotFoundException
+    + FullyQualifiedErrorId : ItemNotFoundException,Microsoft.PowerShell.Commands.GetAliasCommand
+get-alias : This command cannot find a matching alias because an alias with the name 'select-object' does not exist.
+At line:1 char:1
++ get-alias select-object
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (select-object:String) [Get-Alias], ItemNotFoundException
+    + FullyQualifiedErrorId : ItemNotFoundException,Microsoft.PowerShell.Commands.GetAliasCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias select
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           select -> Select-Object
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias *select
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           select -> Select-Object
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias select
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           select -> Select-Object
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias 
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           % -> ForEach-Object
+Alias           ? -> Where-Object
+Alias           ?? -> Invoke-NullCoalescing                        0.7.3.1    posh-git
+Alias           ac -> Add-Content
+Alias           asnp -> Add-PSSnapin
+Alias           cat -> Get-Content
+Alias           cd -> Set-Location
+Alias           CFS -> ConvertFrom-String                          3.1.0.0    Microsoft.PowerShell.Utility
+Alias           chdir -> Set-Location
+Alias           clc -> Clear-Content
+Alias           clear -> Clear-Host
+Alias           clhy -> Clear-History
+Alias           cli -> Clear-Item
+Alias           clp -> Clear-ItemProperty
+Alias           cls -> Clear-Host
+Alias           clv -> Clear-Variable
+Alias           cnsn -> Connect-PSSession
+Alias           compare -> Compare-Object
+Alias           copy -> Copy-Item
+Alias           cp -> Copy-Item
+Alias           cpi -> Copy-Item
+Alias           cpp -> Copy-ItemProperty
+Alias           curl -> Invoke-WebRequest
+Alias           cvpa -> Convert-Path
+Alias           dbp -> Disable-PSBreakpoint
+Alias           del -> Remove-Item
+Alias           diff -> Compare-Object
+Alias           dir -> Get-ChildItem
+Alias           dnsn -> Disconnect-PSSession
+Alias           ebp -> Enable-PSBreakpoint
+Alias           echo -> Write-Output
+Alias           epal -> Export-Alias
+Alias           epcsv -> Export-Csv
+Alias           epsn -> Export-PSSession
+Alias           erase -> Remove-Item
+Alias           etsn -> Enter-PSSession
+Alias           exsn -> Exit-PSSession
+Alias           fc -> Format-Custom
+Alias           fhx -> Format-Hex                                  3.1.0.0    Microsoft.PowerShell.Utility
+Alias           fimo -> Find-Module                                1.0.0.1    PowerShellGet
+Alias           fl -> Format-List
+Alias           foreach -> ForEach-Object
+Alias           ft -> Format-Table
+Alias           fw -> Format-Wide
+Alias           gal -> Get-Alias
+Alias           gbp -> Get-PSBreakpoint
+Alias           gc -> Get-Content
+Alias           gcb -> Get-Clipboard                               3.1.0.0    Microsoft.PowerShell.Management
+Alias           gci -> Get-ChildItem
+Alias           gcm -> Get-Command
+Alias           gcs -> Get-PSCallStack
+Alias           gdr -> Get-PSDrive
+Alias           ghy -> Get-History
+Alias           gi -> Get-Item
+Alias           gin -> Get-ComputerInfo                            3.1.0.0    Microsoft.PowerShell.Management
+Alias           gjb -> Get-Job
+Alias           gl -> Get-Location
+Alias           gm -> Get-Member
+Alias           gmo -> Get-Module
+Alias           gp -> Get-ItemProperty
+Alias           gps -> Get-Process
+Alias           gpv -> Get-ItemPropertyValue
+Alias           group -> Group-Object
+Alias           gsn -> Get-PSSession
+Alias           gsnp -> Get-PSSnapin
+Alias           gsv -> Get-Service
+Alias           gtz -> Get-TimeZone                                3.1.0.0    Microsoft.PowerShell.Management
+Alias           gu -> Get-Unique
+Alias           gv -> Get-Variable
+Alias           gwmi -> Get-WmiObject
+Alias           h -> Get-History
+Alias           history -> Get-History
+Alias           icm -> Invoke-Command
+Alias           iex -> Invoke-Expression
+Alias           ihy -> Invoke-History
+Alias           ii -> Invoke-Item
+Alias           inmo -> Install-Module                             1.0.0.1    PowerShellGet
+Alias           ipal -> Import-Alias
+Alias           ipcsv -> Import-Csv
+Alias           ipmo -> Import-Module
+Alias           ipsn -> Import-PSSession
+Alias           irm -> Invoke-RestMethod
+Alias           ise -> powershell_ise.exe
+Alias           iwmi -> Invoke-WmiMethod
+Alias           iwr -> Invoke-WebRequest
+Alias           kill -> Stop-Process
+Alias           lp -> Out-Printer
+Alias           ls -> Get-ChildItem
+Alias           man -> help
+Alias           md -> mkdir
+Alias           measure -> Measure-Object
+Alias           mi -> Move-Item
+Alias           mount -> New-PSDrive
+Alias           move -> Move-Item
+Alias           mp -> Move-ItemProperty
+Alias           mv -> Move-Item
+Alias           nal -> New-Alias
+Alias           ndr -> New-PSDrive
+Alias           ni -> New-Item
+Alias           nmo -> New-Module
+Alias           npssc -> New-PSSessionConfigurationFile
+Alias           nsn -> New-PSSession
+Alias           nv -> New-Variable
+Alias           ogv -> Out-GridView
+Alias           oh -> Out-Host
+Alias           popd -> Pop-Location
+Alias           ps -> Get-Process
+Alias           pumo -> Publish-Module                             1.0.0.1    PowerShellGet
+Alias           pushd -> Push-Location
+Alias           pwd -> Get-Location
+Alias           r -> Invoke-History
+Alias           rbp -> Remove-PSBreakpoint
+Alias           rcjb -> Receive-Job
+Alias           rcsn -> Receive-PSSession
+Alias           rd -> Remove-Item
+Alias           rdr -> Remove-PSDrive
+Alias           refreshenv -> Update-SessionEnvironment            0.0        chocolateyProfile
+Alias           ren -> Rename-Item
+Alias           ri -> Remove-Item
+Alias           rjb -> Remove-Job
+Alias           rm -> Remove-Item
+Alias           rmdir -> Remove-Item
+Alias           rmo -> Remove-Module
+Alias           rni -> Rename-Item
+Alias           rnp -> Rename-ItemProperty
+Alias           rp -> Remove-ItemProperty
+Alias           rsn -> Remove-PSSession
+Alias           rsnp -> Remove-PSSnapin
+Alias           rujb -> Resume-Job
+Alias           rv -> Remove-Variable
+Alias           rvpa -> Resolve-Path
+Alias           rwmi -> Remove-WmiObject
+Alias           sajb -> Start-Job
+Alias           sal -> Set-Alias
+Alias           saps -> Start-Process
+Alias           sasv -> Start-Service
+Alias           sbp -> Set-PSBreakpoint
+Alias           sc -> Set-Content
+Alias           scb -> Set-Clipboard                               3.1.0.0    Microsoft.PowerShell.Management
+Alias           select -> Select-Object
+Alias           set -> Set-Variable
+Alias           shcm -> Show-Command
+Alias           si -> Set-Item
+Alias           sl -> Set-Location
+Alias           sleep -> Start-Sleep
+Alias           sls -> Select-String
+Alias           sort -> Sort-Object
+Alias           sp -> Set-ItemProperty
+Alias           spjb -> Stop-Job
+Alias           spps -> Stop-Process
+Alias           spsv -> Stop-Service
+Alias           start -> Start-Process
+Alias           stz -> Set-TimeZone                                3.1.0.0    Microsoft.PowerShell.Management
+Alias           sujb -> Suspend-Job
+Alias           sv -> Set-Variable
+Alias           swmi -> Set-WmiInstance
+Alias           tee -> Tee-Object
+Alias           trcm -> Trace-Command
+Alias           type -> Get-Content
+Alias           upmo -> Update-Module                              1.0.0.1    PowerShellGet
+Alias           ViewEXIF -> ViewEXIF.exe
+Alias           wget -> Invoke-WebRequest
+Alias           where -> Where-Object
+Alias           wjb -> Wait-Job
+Alias           write -> Write-Output
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias | Select-Object value
+
+value
+-----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-alias | get-type
+get-type : The term 'get-type' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:13
++ get-alias | get-type
++             ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (get-type:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+get-type : The term 'get-type' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:13
++ get-alias | get-type
++             ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (get-type:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cls
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]$PROFILE
+C:\OneDrive\OneDrive - Michaelis\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]test-file $PROFILE
+test-file : The term 'test-file' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ test-file $PROFILE
++ ~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (test-file:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+test-file : The term 'test-file' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ test-file $PROFILE
++ ~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (test-file:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]test-path $PROFILE
+True
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]notepad $PROFILE
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es utils
+C:\Dropbox\SCC\GIT\KellyBrady\MBS\DevExpress\branches\v12.X\Sources\DevExpress.XtraEditors\DevExpress.XtraEditors\Tab\XtraTabUtils.c
+s
+C:\Dropbox\SCC\GIT\KellyBrady\MBS\DevExpress\branches\v13.X\Sources\DevExpress.XtraEditors\DevExpress.XtraEditors\Tab\XtraTabUtils.c
+s
+C:\Dropbox\SCC\GIT\KellyBrady\MBS\DevExpress\branches\v14.X\Sources\DevExpress.XtraEditors\DevExpress.XtraEditors\Tab\XtraTabUtils.c
+s
+C:\Dropbox\SCC\GIT\KellyBrady\MBS\DevExpress\branches\v8.X\Source\DevExpress.XtraEditors\DevExpress.XtraEditors\Tab\XtraTabUtils.cs
+C:\Dropbox\SCC\GIT\KellyBrady\MBS\DevExpress\branches\v9.X\Source\DevExpress.XtraEditors\DevExpress.XtraEditors\Tab\XtraTabUtils.cs
+C:\Users\mark\AppData\Local\Google\Chrome\User Data\Default\Extensions\ahmpjcflkgiildlgicmcieglgoilbfdp\3.0.57_0\youtubeutils.js
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]es profile.ps1
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]code C:\Dropbox\Programs\Utilities\profile.ps1
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]>dotnet -Register-ArgumentCompleter -Native -CommandName dotnhet -ScriptBlock {
+      param($commandName, $wordToComplete, $cursorPosition)
+          dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+             [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+          }
+  }
+> : The term '>' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ >dotnet -Register-ArgumentCompleter -Native -CommandName dotnhet -Scr ...
++ ~
+    + CategoryInfo          : ObjectNotFound: (>:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+> : The term '>' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the
+name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ >dotnet -Register-ArgumentCompleter -Native -CommandName dotnhet -Scr ...
++ ~
+    + CategoryInfo          : ObjectNotFound: (>:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dotnet -Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+      param($commandName, $wordToComplete, $cursorPosition)
+          dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+             [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+          }
+  }
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]dotnet
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api/?format=json'
+>> TerminatingError(Invoke-WebRequest): "The remote server returned an error: (404) Not Found."
+Invoke-WebRequest : The remote server returned an error: (404) Not Found.
+At line:1 char:1
++ Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api/?f ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], 
+WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+Invoke-WebRequest : The remote server returned an error: (404) Not Found.
+At line:1 char:1
++ Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api/?f ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api?format=json'
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"joke": "Chuck Norris was the orginal sculptor of Mount Rushmore. He completed the entire project using only
+                    a bottle opener and a drywall trowel."}
+
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Access-Control-Allow-Origin: *
+                    CF-Cache-Status: DYNAMIC
+                    Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=J22CDQ8FPM4r%2BuC06dRrK...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Access-Control-Allow-Origin, *], [CF-Cache-Status, DYNAMIC], [Report-To, {"endpoint
+                    s":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=J22CDQ8FPM4r%2BuC06dRrKi921l8v5Yw5ls%2F6Bvt2hr3FqgRg7f
+                    8ExlAWAUCDlPf0QdZ46n%2FlmhiFEO2fJe79JMO%2BuiZLV4VQgvYdTI7fVSETnAx71uGE0ncablV44I5HgIpvb1r2LYBmprHrV6BsVas%3D"}]
+                    ,"group":"cf-nel","max_age":604800}]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 150
+
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api/?format=json' | %{ ConvertFrom-Json $_ }
+>> TerminatingError(Invoke-WebRequest): "The remote server returned an error: (404) Not Found."
+Invoke-WebRequest : The remote server returned an error: (404) Not Found.
+At line:1 char:1
++ Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api/?f ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], 
+WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+Invoke-WebRequest : The remote server returned an error: (404) Not Found.
+At line:1 char:1
++ Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api/?f ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api?format=json' | %{ ConvertFrom-Json $_ }
+
+joke
+----
+Chuck Norris doesn't use reflection, reflection asks politely for his help.
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api?format=json' | %{ ConvertFrom-Json $_ } | %{ $_.joke }
+Le gf: I'll dump you.Le bf: hex dump or binary dump?
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Invoke-WebRequest -Uri 'https://geek-jokes.sameerkumar.website/api?format=json' | %{ ConvertFrom-Json $_ } | %{ $_.joke }
+MacGyver immediately tried to make a bomb out of some Q-Tips and Gatorade, but Chuck Norris roundhouse-kicked him in the solar plexus. MacGyver promptly threw up his own heart.
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-webrequest -uri 'https://intellitect.com'
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-webrequest -uri 'https://intellitect.com' -UseBasicParsing
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : <!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta name="viewport"
+                    content="width=device-width, initial-scale=1, minimum-scale=1"><link rel="profile"
+                    href="https://gmpg.org/xfn/11"> <...
+RawContent        : HTTP/1.1 200 OK
+                    Link: <https://intellitect.com/wp-json/>; rel="https://api.w.org/",
+                    <https://intellitect.com/wp-json/wp/v2/pages/46087>; rel="alternate"; type="application/json",
+                    <https://intellitect...
+Forms             :
+Headers           : {[Link, <https://intellitect.com/wp-json/>; rel="https://api.w.org/",
+                    <https://intellitect.com/wp-json/wp/v2/pages/46087>; rel="alternate"; type="application/json",
+                    <https://intellitect.com/>; rel=shortlink], [Upgrade, h2,h2c], [Connection, Upgrade], [Vary,
+                    Accept-Encoding]...}
+Images            : {}
+InputFields       : {@{outerHTML=<input type="search"
+                     class="search-field"
+                     aria-label="Search"
+                     placeholder="Search "
+                     value=""
+                     name="s"/>; tagName=INPUT; type=search; class=search-field; aria-label=Search; placeholder=Search ; value=;
+                    name=s}}
+Links             : {@{outerHTML=<a class="neve-skip-link show-on-focus" href="#content" > Skip to content </a>; tagName=A;
+                    class=neve-skip-link show-on-focus; href=#content}, @{outerHTML=<a class="brand"
+                    href="https://intellitect.com/" title="IntelliTect"
+                     aria-label="IntelliTect"><img width="300" height="64"
+                    src="https://intellitect.com/wp-content/uploads/2021/10/IntelliTect-Logo-Secondary-BlueWhite-300x64-1.png"
+                    class="neve-site-logo skip-lazy" alt="" decoding="async" data-variant="logo" /></a>; tagName=A; class=brand;
+                    href=https://intellitect.com/; title=IntelliTect; aria-label=IntelliTect}, @{outerHTML=<a
+                    href="https://intellitect.com/software-architecture/"><span class="menu-item-title-wrap dd-title">What We
+                    Do</span></a>; tagName=A; href=https://intellitect.com/software-architecture/}, @{outerHTML=<a
+                    href="https://intellitect.com/software-architecture/">Software Architecture</a>; tagName=A;
+                    href=https://intellitect.com/software-architecture/}...}
+ParsedHtml        :
+RawContentLength  : 190614
+
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-webrequest -uri 'https://intellitect.com' -UseBasicParsing%{ $_.contains('IntelliTect') }
+>> TerminatingError(Invoke-WebRequest): "A parameter cannot be found that matches parameter name 'UseBasicParsing%'."
+Invoke-WebRequest : A parameter cannot be found that matches parameter name 'UseBasicParsing%'.
+At line:1 char:50
++ ... e-webrequest -uri 'https://intellitect.com' -UseBasicParsing%{ $_.con ...
++                                                 ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-WebRequest], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+Invoke-WebRequest : A parameter cannot be found that matches parameter name 'UseBasicParsing%'.
+At line:1 char:50
++ ... e-webrequest -uri 'https://intellitect.com' -UseBasicParsing%{ $_.con ...
++                                                 ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-WebRequest], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-webrequest -uri 'https://intellitect.com' -UseBasicParsing| %{ $_.contains('IntelliTect') }
+Method invocation failed because [Microsoft.PowerShell.Commands.BasicHtmlWebResponseObject] does not contain a method 
+named 'Contains'.
+At line:1 char:71
++ ... ://intellitect.com' -UseBasicParsing| %{ $_.contains('IntelliTect') }
++                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+Method invocation failed because [Microsoft.PowerShell.Commands.BasicHtmlWebResponseObject] does not contain a method named
+'Contains'.
+At line:1 char:71
++ ... ://intellitect.com' -UseBasicParsing| %{ $_.contains('IntelliTect') }
++                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-webrequest -uri 'https://intellitect.com' -UseBasicParsing| %{ $_.Content.contains('IntelliTect') }
+True
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-webrequest -uri 'https://intellitect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*') }
+At line:1 char:82
++ ... tps://intellitect.com' -UseBasicParsing| %{ $_.Content -regex '.*Inte ...
++                                                            ~~~~~~
+Unexpected token '-regex' in expression or statement.
+
+At line:1 char:89
++ ... tect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*') }
++                                                      ~~~~~~~~~~~~~~~~~
+Unexpected token ''.*IntelliTect.*'' in expression or statement.
+
+At line:1 char:69
++ ... ebrequest -uri 'https://intellitect.com' -UseBasicParsing| %{ $_.Cont ...
++                                                                 ~
+Missing closing '}' in statement block or type definition.
+
+At line:1 char:106
++ ... tect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*') }
++                                                                       ~
+Unexpected token ')' in expression or statement.
+
+At line:1 char:108
++ ... tect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*') }
++                                                                         ~
+Unexpected token '}' in expression or statement.
+At line:1 char:82
++ ... tps://intellitect.com' -UseBasicParsing| %{ $_.Content -regex '.*Inte ...
++                                                            ~~~~~~
+Unexpected token '-regex' in expression or statement.
+
+At line:1 char:89
++ ... tect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*') }
++                                                      ~~~~~~~~~~~~~~~~~
+Unexpected token ''.*IntelliTect.*'' in expression or statement.
+
+At line:1 char:69
++ ... ebrequest -uri 'https://intellitect.com' -UseBasicParsing| %{ $_.Cont ...
++                                                                 ~
+Missing closing '}' in statement block or type definition.
+
+At line:1 char:106
++ ... tect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*') }
++                                                                       ~
+Unexpected token ')' in expression or statement.
+
+At line:1 char:108
++ ... tect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*') }
++                                                                         ~
+Unexpected token '}' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnexpectedToken
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-webrequest -uri 'https://intellitect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*' }
+At line:1 char:82
++ ... tps://intellitect.com' -UseBasicParsing| %{ $_.Content -regex '.*Inte ...
++                                                            ~~~~~~
+Unexpected token '-regex' in expression or statement.
+
+At line:1 char:89
++ ... itect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*' }
++                                                       ~~~~~~~~~~~~~~~~~
+Unexpected token ''.*IntelliTect.*'' in expression or statement.
+At line:1 char:82
++ ... tps://intellitect.com' -UseBasicParsing| %{ $_.Content -regex '.*Inte ...
++                                                            ~~~~~~
+Unexpected token '-regex' in expression or statement.
+
+At line:1 char:89
++ ... itect.com' -UseBasicParsing| %{ $_.Content -regex '.*IntelliTect.*' }
++                                                       ~~~~~~~~~~~~~~~~~
+Unexpected token ''.*IntelliTect.*'' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnexpectedToken
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]help regex
+
+]TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]'This is some text' -match 'T.*'
+True
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]'This is some text' -match 'T.*'; $match
+True
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]'This is some text' -match 'T.*'; $matches
+True
+
+Name                           Value
+----                           -----
+0                              This is some text
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]invoke-webrequest -uri 'https://intellitect.com' -UseBasicParsing| %{ $_.Content -match '.*IntelliTect.*' }
+True
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]$matches
+
+Name                           Value
+----                           -----
+0                              	const gtm4wp_scrollerscript_scannertime       = 60;</script> <title>IntelliTect: Software Develo...
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-verb search
+
+Verb   Group
+----   -----
+Search Common
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]function Search-Website([string] uri) {
+Write-Output uri
+}
+At line:1 char:33
++ function Search-Website([string] uri) {
++                                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer expressions.
+
+At line:1 char:33
++ function Search-Website([string] uri) {
++                                 ~
+Missing ')' in function parameter list.
+
+At line:3 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+At line:1 char:33
++ function Search-Website([string] uri) {
++                                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer expressions.
+
+At line:1 char:33
++ function Search-Website([string] uri) {
++                                 ~
+Missing ')' in function parameter list.
+
+At line:3 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]function Search-Website([string] $uri) {
+Write-Output uri
+}
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Search-Website "IntelliTect.com"
+uri
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]function Search-Website([string] $uri) {
+Write-Output $uri
+}
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]Search-Website "IntelliTect.com"
+IntelliTect.com
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]function Search-Website([string] $uri,[string] $find) {
+Write-Output $uri $find
+}
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]function Search-Website([string] $uri,[string] $find) {
+Write-Output $uri $find
+} 
+Search-Website 'Https://IntelliTect.com' 'IntelliTect'
+Https://IntelliTect.com
+IntelliTect
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-module pester
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-module -Name pester
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-module
+
+ModuleType Version    Name                                ExportedCommands
+---------- -------    ----                                ----------------
+Script     0.0        chocolateyProfile                   {TabExpansion, Update-SessionEnvironment, refreshenv}
+Manifest   3.0.0.0    Microsoft.PowerShell.Host           {Start-Transcript, Stop-Transcript}
+Manifest   3.1.0.0    Microsoft.PowerShell.Management     {Add-Computer, Add-Content, Checkpoint-Computer, Clear-Content...}
+Manifest   3.0.0.0    Microsoft.PowerShell.Security       {ConvertFrom-SecureString, ConvertTo-SecureString, Get-Acl, Get-Authen...
+Manifest   3.1.0.0    Microsoft.PowerShell.Utility        {Add-Member, Add-Type, Clear-Variable, Compare-Object...}
+Manifest   3.0.0.0    Microsoft.WSMan.Management          {Connect-WSMan, Disable-WSManCredSSP, Disconnect-WSMan, Enable-WSManCr...
+Script     1.4.8.1    PackageManagement                   {Find-Package, Find-PackageProvider, Get-Package, Get-PackageProvider...}
+Script     0.7.3.1    posh-git                            {Add-PoshGitToProfile, Add-SshKey, Enable-GitColors, Expand-GitCommand...
+Script     1.0.0.1    PowerShellGet                       {Find-Command, Find-DscResource, Find-Module, Find-RoleCapability...}
+Script     2.0.0      PSReadLine                          {Get-PSReadLineKeyHandler, Get-PSReadLineOption, Remove-PSReadLineKeyH...
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-command module
+get-command : The term 'module' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ get-command module
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (module:String) [Get-Command], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException,Microsoft.PowerShell.Commands.GetCommandCommand
+get-command : The term 'module' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ get-command module
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (module:String) [Get-Command], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException,Microsoft.PowerShell.Commands.GetCommandCommand
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-command *module
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           Import-AzureRmAutomationModule                     4.3.2      AzureRM.Automation
+Function        Find-Module                                        1.0.0.1    PowerShellGet
+Function        Get-InstalledModule                                1.0.0.1    PowerShellGet
+Function        Install-Module                                     1.0.0.1    PowerShellGet
+Function        Publish-Module                                     1.0.0.1    PowerShellGet
+Function        Save-Module                                        1.0.0.1    PowerShellGet
+Function        Uninstall-Module                                   1.0.0.1    PowerShellGet
+Function        Update-Module                                      1.0.0.1    PowerShellGet
+Cmdlet          Get-AzureAutomationModule                          5.1.2      Azure
+Cmdlet          Get-AzureRmAutomationModule                        4.3.2      AzureRM.Automation
+Cmdlet          Get-Module                                         3.0.0.0    Microsoft.PowerShell.Core
+Cmdlet          Import-Module                                      3.0.0.0    Microsoft.PowerShell.Core
+Cmdlet          New-AzureAutomationModule                          5.1.2      Azure
+Cmdlet          New-AzureRmAutomationModule                        4.3.2      AzureRM.Automation
+Cmdlet          New-Module                                         3.0.0.0    Microsoft.PowerShell.Core
+Cmdlet          Remove-AzureAutomationModule                       5.1.2      Azure
+Cmdlet          Remove-AzureRmAutomationModule                     4.3.2      AzureRM.Automation
+Cmdlet          Remove-Module                                      3.0.0.0    Microsoft.PowerShell.Core
+Cmdlet          Set-AzureAutomationModule                          5.1.2      Azure
+Cmdlet          Set-AzureRmAutomationModule                        4.3.2      AzureRM.Automation
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]import-module pester
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-module pester
+
+ModuleType Version    Name                                ExportedCommands
+---------- -------    ----                                ----------------
+Script     5.4.0      pester                              {Add-ShouldOperator, AfterAll, AfterEach, Assert-MockCalled...}
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-module pester | Select-Object -Property ExportedCommands
+
+ExportedCommands
+----------------
+{[Add-ShouldOperator, Add-ShouldOperator], [AfterAll, AfterAll], [AfterEach, AfterEach], [Assert-MockCalled, Assert-MockCalled]...}
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]get-command -Module pester
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           Add-AssertionOperator                              5.4.0      pester
+Alias           Get-AssertionOperator                              5.4.0      pester
+Function        Add-ShouldOperator                                 5.4.0      pester
+Function        AfterAll                                           5.4.0      pester
+Function        AfterEach                                          5.4.0      pester
+Function        Assert-MockCalled                                  5.4.0      pester
+Function        Assert-VerifiableMock                              5.4.0      pester
+Function        BeforeAll                                          5.4.0      pester
+Function        BeforeDiscovery                                    5.4.0      pester
+Function        BeforeEach                                         5.4.0      pester
+Function        Context                                            5.4.0      pester
+Function        ConvertTo-JUnitReport                              5.4.0      pester
+Function        ConvertTo-NUnitReport                              5.4.0      pester
+Function        ConvertTo-Pester4Result                            5.4.0      pester
+Function        Describe                                           5.4.0      pester
+Function        Export-JUnitReport                                 5.4.0      pester
+Function        Export-NUnitReport                                 5.4.0      pester
+Function        Get-ShouldOperator                                 5.4.0      pester
+Function        InModuleScope                                      5.4.0      pester
+Function        Invoke-Pester                                      5.4.0      pester
+Function        It                                                 5.4.0      pester
+Function        Mock                                               5.4.0      pester
+Function        New-Fixture                                        5.4.0      pester
+Function        New-MockObject                                     5.4.0      pester
+Function        New-PesterConfiguration                            5.4.0      pester
+Function        New-PesterContainer                                5.4.0      pester
+Function        Set-ItResult                                       5.4.0      pester
+Function        Should                                             5.4.0      pester
+
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]function Search-Website([string] $uri,[string] $find) {
+Write-Output $uri $find
+} 
+Search-Website 'Https://IntelliTect.com' 'IntelliTect' | Should -BeLike '*IntelliTect*'
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]function Search-Website([string] $uri,[string] $find) {
+Write-Output $uri $find
+} 
+Search-Website 'Https://IntelliTect.com' 'IntelliTect' | Should -BeLike '*IntelliTecadsfasdft*'
+]TerminatingError(): "Expected like wildcard '*IntelliTecadsfasdft*' to match 'Https://IntelliTect.com', but it did not match."
+>> TerminatingError(): "Expected like wildcard '*IntelliTecadsfasdft*' to match 'Https://IntelliTect.com', but it did not match."
+>> TerminatingError(): "Expected like wildcard '*IntelliTecadsfasdft*' to match 'Https://IntelliTect.com', but it did not match."
+Expected like wildcard '*IntelliTecadsfasdft*' to match 'Https://IntelliTect.com', but it did not match.
+Expected like wildcard '*IntelliTecadsfasdft*' to match 'Https://IntelliTect.com', but it did not match.
+At C:\Program Files\WindowsPowerShell\Modules\pester\5.4.0\Pester.psm1:8130 char:13
++             throw $errorRecord
++             ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidResult: (System.Collecti...,System.Object]:Dictionary`2) [], Exception
+    + FullyQualifiedErrorId : PesterAssertionFailed
+
+C:\Git\EWU-CSCD371-2023-Winter
+ [
+Lecture-Reflection(2023-03-02)
+ ≡
+]
+>
+]cd C:\Git\PSToolbox\
+C:\Git\PSToolbox
+ [
+main
+ ≡
+ +0
+ ~1
+ -0
+ !
+]
+>
+]dir
+
+
+    Directory: C:\Git\PSToolbox
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/27/2022   7:56 PM                .github
+d-----        10/27/2022   7:56 PM                .vscode
+d-----        10/27/2022   7:56 PM                Archived Modules
+d-----        10/27/2022   7:56 PM                Content
+d-----        10/27/2022   7:56 PM                Functions
+d-----        10/27/2022   7:56 PM                Functions.Tests
+d-----        10/27/2022   7:56 PM                Lib
+d-----        10/27/2022   7:56 PM                Modules
+d-----        10/27/2022   7:56 PM                Modules.Tests
+d-----        10/27/2022   7:56 PM                submodules
+-a----         2/12/2023   3:29 PM           3852 .gitignore
+-a----        10/27/2022   7:56 PM            169 .gitmodules
+-a----        10/27/2022   7:56 PM           4228 CONTRIBUTING.md
+-a----        10/27/2022   7:56 PM           1078 LICENSE.txt
+-a----        10/27/2022   7:56 PM            327 Main.ps1
+-a----        10/27/2022   7:56 PM            548 Main.Tests.ps1
+-a----        10/27/2022   7:56 PM            192 Project.code-workspace
+-a----        10/27/2022   7:56 PM           1304 PSScriptAnalyzerSettings.psd1
+-a----        10/28/2022   8:03 PM           4208 Publish.ps1
+-a----        10/27/2022   7:56 PM           2010 README.md
+-a----        12/13/2022   8:31 PM           2174 Setup.ps1
+
+
+C:\Git\PSToolbox
+ [
+main
+ ≡
+ +0
+ ~1
+ -0
+ !
+]
+>
+]code .
+
+C:\Git\PSToolbox
+ [
+main
+ ≡
+ +0
+ ~1
+ -0
+ !
+]
+>
+]$profile.AllUsersAllHosts
+C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
+C:\Git\PSToolbox
+ [
+main
+ ≡
+ +0
+ ~1
+ -0
+ !
+]
+>
+]Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20230302162921
+**********************

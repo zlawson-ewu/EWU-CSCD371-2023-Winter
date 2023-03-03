@@ -37,18 +37,30 @@ public class SampleDataTests
     public void GetUniqueSortedListOfStatesGivenCsvRows_IsSorted()
     {
         // Arrange
-        bool nextElementAscendsPrevious = true;
+        List<string[]> testData = new();
+        foreach (string state in data.CsvRows.ToList())
+        {
+            testData.Add(state.Split(','));
+        }
+        List<string> testStates = new();
+        foreach (string[] row in testData)
+        {
+            if (!testStates.Contains(row[6])) testStates.Add(row[6]);
+        }
+        testStates.Sort();
 
         // Act
         List<string> uniqueStates = data.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
 
         // Assert
-        for (int i = 0; i < uniqueStates.Count - 1; i++)
+        int count = 0;
+        foreach (string state in testStates)
         {
-            if (StringComparer.Ordinal.Compare(uniqueStates[i], uniqueStates[i + 1]) > 0)
-                nextElementAscendsPrevious = false;
+            Console.WriteLine(state + " = " + uniqueStates[count]);
+            Assert.AreEqual<string>(state.ToString(), uniqueStates[count].ToString());
+            count++;
         }
-        Assert.IsTrue(nextElementAscendsPrevious);
+        Assert.AreEqual<int>(count, uniqueStates.Count());
     }
 
     [TestMethod]

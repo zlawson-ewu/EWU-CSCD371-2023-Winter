@@ -60,7 +60,7 @@ public class SampleDataTests
             Assert.AreEqual<string>(state.ToString(), uniqueStates[count].ToString());
             count++;
         }
-        Assert.AreEqual<int>(count, uniqueStates.Count());
+        Assert.AreEqual<int>(count, uniqueStates.Count);
     }
 
     [TestMethod]

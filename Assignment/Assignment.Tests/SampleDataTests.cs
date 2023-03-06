@@ -11,18 +11,6 @@ public class SampleDataTests
 {
     readonly SampleData data = new();
 
-    readonly List<Address> spokaneAddresses = new()
-    {
-        new Address("507 N Howard St", "Spokane", "WA", "99201"),     //River Front Park
-        new Address("803 W Mallon Ave","Spokane", "WA", "99201"),     //David's Pizza
-        new Address("1702 S Grand Blvd", "Spokane", "AZ", "99203"),   //Manito Park
-        new Address("101 W 8th Ave", "Spokane", "IL", "99204"),       //Sacred Heart Hospital
-        new Address("601 E Riverside Ave", "Spokane", "TN", "99202"), //Catalyst Building
-        new Address("916 W 2nd Ave", "Spokane", "ID", "99201"),       //Wild Sage Bistro
-        new Address("501 W Park Pl", "Spokane", "CA", "99205"),       //Corbin Park
-        new Address("1810 N Greene St", "Spokane", "NY", "99217")     //Spokane Community College
-    };
-
     [TestMethod]
     public void SampleData_FillsListFromCSVRows_Success()
     {
@@ -74,22 +62,28 @@ public class SampleDataTests
     }
 
     [TestMethod]
-    public void HardCodedAddresses_YieldOneDistinctState_True()
+    public void GetUniqueSortedListOfStatesGivenCsvRows_MatchesHardcodedTestList()
     {
         // Arrange
-        List<string> uniqueStates = new();
+        List<string> hardcodedStatesExpected = new() { 
+            "AL", "AZ", "CA", "DC", "FL", "GA", "IN", 
+            "KS", "LA", "MD", "MN", "MO", "MT", "NC", 
+            "NE", "NH", "NV", "NY", "OR", "PA", "SC", 
+            "TN", "TX", "UT", "VA", "WA", "WV" };
 
         // Act
-        foreach (Address address in spokaneAddresses) 
-        {
-            if (!uniqueStates.Contains(address.State))
-            {
-                uniqueStates.Add(address.State);
-            }
-        }
+        List<string> uniqueStates = data.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
 
         //Assert
-        Assert.AreEqual<int>(7, uniqueStates.Count);
+        int count = 0;
+        foreach (string state in uniqueStates)
+        {
+            Console.WriteLine(hardcodedStatesExpected[count] + " = " + state);
+            Assert.AreEqual<string>(hardcodedStatesExpected[count], state);
+            count++;
+        }
+
+        Assert.AreEqual<int>(hardcodedStatesExpected.Count, uniqueStates.Count);
     }
 
     [TestMethod]

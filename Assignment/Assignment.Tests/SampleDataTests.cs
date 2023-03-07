@@ -38,17 +38,10 @@ public class SampleDataTests
         testStates.Sort();
 
         // Act
-        List<string> uniqueStates = data.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
+        IEnumerable<string> uniqueStates = data.GetUniqueSortedListOfStatesGivenCsvRows();
 
         // Assert
-        int count = 0;
-        foreach (string state in testStates)
-        {
-            Console.WriteLine(state + " = " + uniqueStates[count]);
-            Assert.AreEqual<string>(state.ToString(), uniqueStates[count].ToString());
-            count++;
-        }
-        Assert.AreEqual<int>(count, uniqueStates.Count);
+        Assert.IsTrue(uniqueStates.SequenceEqual(testStates));
     }
 
     [TestMethod]

@@ -14,22 +14,16 @@ public class SampleData : ISampleData
     // 2.
     public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
     {
-        List<string> uniqueSortedStates = new();
-        foreach (string row in CsvRows)
-        {
-            string[] splitrow = row.Split(',');
-            if (!uniqueSortedStates.Contains(splitrow[6])) uniqueSortedStates.Add(splitrow[6]);
-        }
-        uniqueSortedStates.Sort();
-        return uniqueSortedStates;
+        return CsvRows
+            .Select(row => row.Split(',')[6])
+            .Distinct()
+            .OrderBy(state => state);
     }
 
     // 3.
     public string GetAggregateSortedListOfStatesUsingCsvRows()
     {
-        string[] uniqueSortedStates = GetUniqueSortedListOfStatesGivenCsvRows().ToArray();
-        string uniqueStatesSorted = string.Join(",", uniqueSortedStates);
-        return uniqueStatesSorted;
+        return string.Join(",", GetUniqueSortedListOfStatesGivenCsvRows().ToArray());
     }
 
     // 4.

@@ -7,7 +7,7 @@ public class People : IEnumerable<Person>
     private List<Person> InternalCollection { get; set; }
 
     public People(IEnumerable<Person> people)
-    {
+    { Async
         InternalCollection = new List<Person>(people);
     }
 

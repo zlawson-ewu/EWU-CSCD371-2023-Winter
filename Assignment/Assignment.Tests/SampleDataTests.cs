@@ -125,8 +125,7 @@ public class SampleDataTests
         {
             people.Add(SampleData.ParsePersonFromRow(line));
         }
-        people = people.OrderBy(x => x.Address.ToString())
-            .ThenBy(x => x.Address.State)
+        people = people.OrderBy(x => x.Address.State)
             .ThenBy(x => x.Address.City)
             .ThenBy(x => x.Address.Zip).ToList();
 

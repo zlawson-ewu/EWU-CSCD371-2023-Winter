@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Assignment;
 
@@ -27,11 +28,11 @@ public class SampleData : ISampleData
     }
 
     // 4.
-    public IEnumerable<IPerson> People => CsvRows.Select(ParsePersonFromRow)
-        .OrderBy(x => x.Address.ToString())
-        .ThenBy(x => x.Address.State)
-        .ThenBy(x => x.Address.City)
-        .ThenBy(x => x.Address.Zip);
+    public IEnumerable<IPerson> People => CsvRows
+        .OrderBy(x => x.Split(",")[6])
+        .ThenBy(x => x.Split(",")[5])
+        .ThenBy(x => x.Split(",")[7])
+        .Select(ParsePersonFromRow);
 
     public static Person ParsePersonFromRow(string row)
     {

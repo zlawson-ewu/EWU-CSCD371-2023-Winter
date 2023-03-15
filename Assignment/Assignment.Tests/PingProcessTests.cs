@@ -166,6 +166,22 @@ public class PingProcessTests
     }
 
     [TestMethod]
+    [ExpectedException(typeof(AggregateException))]
+    public void RunAsync_MultipleHostAddresses_CancelsWhenRequested()
+    {
+        // Arrange
+        CancellationTokenSource tokenSource = new();
+        string[] hostNames = new string[] { "google.com", "reddit.com", "netflix.com", "wikipedia.com" };
+
+        // Act
+        Task<PingResult> result = Task.Run(() => Sut.RunAsync(hostNames, tokenSource.Token));
+        tokenSource.Cancel();
+        result.Wait();
+
+        // Assert
+    }
+
+    [TestMethod]
     async public Task RunLongRunningAsync_UsingTpl_Success()
     {
         // Arrange

@@ -55,8 +55,8 @@ public class PingProcess
             .Select(async item =>
         {
             Task<PingResult> task = RunAsync(item, cancellationToken);
-            hosts.Add(task.Result.StdOutput?.Trim()!);
             await task.WaitAsync(default(CancellationToken));
+            hosts.Add(task.Result.StdOutput?.Trim()!);
             return task.Result.ExitCode;
         });
         await Task.WhenAll(all);

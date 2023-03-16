@@ -200,7 +200,6 @@ public class PingProcessTests
         System.Text.StringBuilder stringBuilder = new();
 
         // Act
-        object taskLock = new();
         numbers.AsParallel().ForAll(item => stringBuilder.AppendLine(""));
         int lineCount = stringBuilder.ToString().Split(Environment.NewLine).Length;
 

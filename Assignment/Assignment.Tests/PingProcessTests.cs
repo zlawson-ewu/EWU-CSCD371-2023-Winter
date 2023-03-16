@@ -92,7 +92,7 @@ public class PingProcessTests
         Task<PingResult> task = Sut.RunAsync("localhost");
         PingResult result = task.Result;
         task.Wait();
-        
+
         // Assert
         AssertValidPingOutput(result);
     }
@@ -155,14 +155,14 @@ public class PingProcessTests
     {
         // Arrange
         string[] hostNames = new string[] { "localhost", "localhost", "localhost", "localhost" };
-        int expectedLineCount = PingOutputLikeExpression.Split(Environment.NewLine).Length*hostNames.Length;
+        int expectedLineCount = PingOutputLikeExpression.Split(Environment.NewLine).Length * hostNames.Length;
 
         // Act
         PingResult result = await Sut.RunAsync(hostNames);
 
         // Assert
         int? lineCount = result.StdOutput?.Split(Environment.NewLine).Length;
-        Assert.AreEqual(expectedLineCount, lineCount);
+        Assert.AreEqual<int?>(expectedLineCount, lineCount);
     }
 
     [TestMethod]
@@ -200,11 +200,12 @@ public class PingProcessTests
         System.Text.StringBuilder stringBuilder = new();
 
         // Act
+        object taskLock = new();
         numbers.AsParallel().ForAll(item => stringBuilder.AppendLine(""));
         int lineCount = stringBuilder.ToString().Split(Environment.NewLine).Length;
 
         // Assert
-        Assert.AreNotEqual(lineCount, numbers.Count()+1);
+        Assert.AreNotEqual<int>(lineCount, numbers.Count() + 1);
     }
 
     readonly string PingOutputLikeExpression = @"
@@ -222,7 +223,7 @@ Approximate round trip times in milli-seconds:
     {
         Assert.IsFalse(string.IsNullOrWhiteSpace(stdOutput));
         stdOutput = WildcardPattern.NormalizeLineEndings(stdOutput!.Trim());
-        Assert.IsTrue(stdOutput?.IsLike(PingOutputLikeExpression)??false,
+        Assert.IsTrue(stdOutput?.IsLike(PingOutputLikeExpression) ?? false,
             $"Output is unexpected: {stdOutput}");
         Assert.AreEqual<int>(0, exitCode);
     }
